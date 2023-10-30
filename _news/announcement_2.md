@@ -1,7 +1,8 @@
 ---
 layout: post
+title: Updates to the Protective Security Policy Framework
 date: 2023-08-30 07:59:00-0400
-inline: true
+inline: false
 related_posts: false
 ---
  <a href="https://www.protectivesecurity.gov.au/news/policy-amendments-multiple-policies">Recent amendments</a> to the Protective Security Policy Framework were approved by the Australian Government's Security Committee.

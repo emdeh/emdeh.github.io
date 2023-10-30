@@ -2,7 +2,7 @@
 layout: post
 title: Microsoft to put $5 billion into Australian cloud infrastructure
 date: 2023-10-24 07:00:00-0400
-inline: false
+inline: true
 related_posts: false
 ---
 
