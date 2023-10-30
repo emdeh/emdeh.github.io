@@ -9,6 +9,7 @@ giscus_comments: false
 related_posts: false
 toc:
   beginning: true
+featured: true
 ---
 
 ## What are the Essential Eight
