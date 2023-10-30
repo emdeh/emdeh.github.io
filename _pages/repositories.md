@@ -6,8 +6,9 @@ description: Edit the `_data/repositories.yml` and change the `github_users` and
 nav: true
 nav_order: 3
 ---
+A growing list of my Github repositories.
 
-## GitHub users
+<!--## GitHub users
 
 {% if site.data.repositories.github_users %}
 <div class="repositories d-flex flex-wrap flex-md-row flex-column justify-content-between align-items-center">
@@ -32,6 +33,7 @@ nav_order: 3
 {% endfor %}
 {% endif %}
 {% endif %}
+-->
 
 ## GitHub Repositories
 
