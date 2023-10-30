@@ -3,7 +3,7 @@ layout: post
 title: Pilgrimage
 date: 2023-10-15 10:14:00-0400
 description: Pilgrimage - Hack The Box write-up
-tags: easy-box htb
+tags: easy-box htb ctf
 categories: HTB-Machines
 giscus_comments: false
 related_posts: false
