@@ -5,9 +5,9 @@ nav: true
 nav_order: 7
 dropdown: true
 children:
-    - title: publications
-      permalink: /publications/
+    - title: HTB-Machines
+      permalink: /blog/category/htb-machines
     - title: divider
-    - title: projects
-      permalink: /projects/
+    - title: Essential Eight
+      permalink: /blog/category/essential-eight/
 ---
