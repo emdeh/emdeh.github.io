@@ -18,4 +18,6 @@ social: true  # includes social icons at the bottom of the page
 
 Hi there, this is a space for me to build out a portfoliio and showcase some of my work as I begin my journey in specialising in cyber security.
 
-With over a decade of Australian-based public service experience in ICT Project and Service Delivery, I am now looking to pivot my career towards cybersecurity. I pride myself on my sharp attention to detail, ability to devise logical solutions to complex problems, and always considering the human element. I aim to continuously improve my skills, and love that there is always something new to uncover in cyber.
+With over a decade of Australian-based public service experience in ICT Project and Service Delivery, I am now looking to pivot my career towards cybersecurity.
+
+I pride myself on my sharp attention to detail, ability to devise logical solutions to complex problems, and always considering the human element. I aim to continuously improve my skills, and love that there is always something new to uncover in cyber.
