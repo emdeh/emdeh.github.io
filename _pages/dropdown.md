@@ -10,4 +10,6 @@ children:
     - title: divider
     - title: Essential Eight
       permalink: /blog/category/essential-eight/
+    - title: Explainers
+      permalink: /blog/category/Explainers/
 ---
