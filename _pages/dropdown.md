@@ -8,6 +8,9 @@ children:
     - title: HTB-Machines
       permalink: /blog/category/htb-machines
     - title: divider
-    - title: Essential Eight Explainers
+    - title: Essential Eight
       permalink: /essential-eight-explainers/
+    - title: divider
+    - title: Explainers
+      permalink: /blog/category/explainers/
 ---
