@@ -169,7 +169,7 @@ collections:
     permalink: /news/:path/
   projects:
     output: true
-    permalink: /projects/:path/
+    permalink: /essential-eight-explainers/:path/
 
 announcements:
   enabled: true

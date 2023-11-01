@@ -1,13 +1,17 @@
 ---
 layout: page
-title: projects
-permalink: /projects/
-description: A growing collection of your cool projects.
-nav: false
+title: Essential Eight
+permalink: /essential-eight-explainers/
+description: A growing collection of Essential Eight related explainers and POCs.
+nav: true
 nav_order: 2
-display_categories: [work, fun]
+display_categories: [Cat1, Cat2]
 horizontal: false
 ---
+
+This is a growing collection of explainers and POCs that demonstrate the importance of the Australian Signals Directorate's Essential Eight <a href="https://www.cyber.gov.au/resources-business-and-government/essential-cyber-security/essential-eight/essential-eight-explained"> Strategies to Mitigate Cyber Security Incidents </a>.
+
+The "Essential Eight" acts as a baseline of eight mitigation strategies to assist organisations in protecting their systems against a range of cyber threats. The Essential Eight strategies are designed to be implemented as a package.
 
 <!-- pages/projects.md -->
 <div class="projects">
