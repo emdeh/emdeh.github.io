@@ -5,7 +5,7 @@ date: 2023-10-15 10:14:00-0400
 description: Pilgrimage - Hack The Box write-up
 tags: easy-box htb ctf RCE LFI AFR
 categories: HTB-Machines
-thumbnail: /assets/img/2023-pilgrimagelogo.jpg
+thumbnail: /assets/img/Pilgrimage.png
 giscus_comments: false
 related_posts: false
 toc:
@@ -13,7 +13,7 @@ toc:
 featured: false
 ---
 
-## Introduction
+# Introduction
 
 Pilgrimage is a relatively challenging Easy box where an Arbitrary File Read vulnerability is exploited to steal a username..
 
@@ -23,7 +23,7 @@ Once logged in  [pspy64](https://github.com/DominicBreuker/pspy) finds a script 
 
 This is ultimately used to elevate privileges to `root`.
 
-### Tools, exploits, and CVEs
+## Tools, exploits, and CVEs
 
 | Tool       | Description | 
 |-----------------|----------|
@@ -32,15 +32,15 @@ This is ultimately used to elevate privileges to `root`.
 | [Pspy](https://github.com/DominicBreuker/pspy)| pspy is a command line tool designed to snoop on processes without need for root permissions. It allows you to see commands run by other users, cron jobs, etc. as they execute. Great for enumeration of Linux systems in CTFs. Also great to demonstrate your colleagues why passing secrets as arguments on the command line is a bad idea.
 | [CVE-2022-4510-Binwalk RCE Poc](https://github.com/adhikara13/CVE-2022-4510-WalkingPath#cve-2022-4510-binwalk)|This script allows you to generate exploits for targeting CVE-2022-4510 Binwalk vulnerabilities. The exploits can be used for testing and demonstrations. The supported options include SSH, command execution, and reverse shell.|
 
-### What's an Arbitrary File Read
+## What's an Arbitrary File Read
 
 An Arbitrary File Read vulnerability allows an attacker to read files on a system that they shouldn't have access to. This could include sensitive configuration files, database credentials, or any other sensitive data stored on the server. The vulnerability occurs due to improper validation or lack of permissions in the application's code, and it can lead to information disclosure or further exploitation if chained with other vulnerabilities.
 
-### What's a Local File Inclusion (LFI)
+## What's a Local File Inclusion (LFI)
 
 A Local File Inclusion (LFI) vulnerability allows an attacker to include files from the server's local filesystem into the output of a web application. This can lead to sensitive information disclosure, such as reading the /etc/passwd file on a Linux machine. LFI vulnerabilities typically occur due to poor validation of user input in web applications and can sometimes be escalated to execute arbitrary code on the server.
 
-### What's binwalk?
+## What's binwalk?
 
 Binwalk is a tool commonly used for analyzing, reverse engineering, and extracting firmware images. It's widely used for security research and has various functionalities suitable for exploring a file's structure. Essentially, it scans the given binary file for known patterns or "magic bytes," then provides you with information about what each segment of bytes represents.
 
@@ -50,7 +50,7 @@ For instance, you might use binwalk to:
 - Extract those file systems for further analysis.
 - Identify executable code, or other types of data, embedded in the firmware.
 
-## Enumeration
+# Enumeration
 
 Began with nmap scan
 ```bash
@@ -83,7 +83,7 @@ Browsing to IP returns `http://pilgrimage.htb/`. Add to hosts:
 ```bash
 10.129.80.229 pilgrimage.htb
 ```
-## Site enumeration
+# Site enumeration
 
 Lands on a site that appears to be a free online image shrinker.
 <img src="/assets/img/20231016-pilgrimage-1.png" alt="Image of site" class="auto-resize">
@@ -122,7 +122,7 @@ Service detection performed. Please report any incorrect results at https://nmap
 Nmap done: 1 IP address (1 host up) scanned in 14.81 seconds
 ```
 
-## Git Repo enumeration
+# Git Repo enumeration
 Used https://github.com/arthaud/git-dumper.git to dump git repo:
 
 ```shell
@@ -147,14 +147,14 @@ The magick version is vulnerable to a **Arbitrary File Read**
 
 ## Initial access
 
-### Arbitrary File Read
+## Arbitrary File Read
 Used https://github.com/voidz0r/CVE-2022-44268 PoC.
 
 Read `/etc/passwd` file and found user `emily`
 <img src="/assets/img/20231016-pilgrimage-4.png" alt="Image found user" class="auto-resize">
 
 
-### Local File Inclusion
+## Local File Inclusion
 The **dashboard.php** makes queries to a SQLite database at `/var/db/pilgrimage`
 
 Downloaded DB using the LFI vulnerability
@@ -257,11 +257,11 @@ python3 -c "print(bytes.fromhex(open('hex_data.txt', 'r').read().strip()))"
 Find a password:
 <img src="/assets/img/20231016-pilgrimage-5a.png" alt="Found password" class="auto-resize">
 
-## Logging in
+# Logging in
 User the credentials `emily:abigchonkyboi123` to log in via ssh.
 <img src="/assets/img/20231016-pilgrimage-6.png" alt="SSH in" class="auto-resize">
 
-## Privilege escalation
+# Privilege escalation
 No sudo privs
 
 ```shell
