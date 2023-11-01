@@ -5,6 +5,7 @@ date: 2023-10-30 10:14:00-0400
 description: Essential Eight security controls
 tags: ACSC PSPF
 categories: Essential-Eight
+thumbnail: /assets/img/2023-essentialeight.png
 giscus_comments: false
 related_posts: false
 toc:
@@ -18,7 +19,7 @@ The Australian Cyber Security Centre (ACSC) developed the "Essential Eight" as a
 
 Importantly, the Essential Eight is just a starting point and is not exhaustive. Organisations should conduct regular risk assessments and adopt additional strategies as needed based on their specific threat environment.
 
-Over the coming months, I'll endeavour to produce PoCs that demonstrate why each one is important, and add it the 
+Over the coming months, I'll endeavour to produce PoCs that demonstrate why each one is important, and add it the <a href="https://emdeh.com/essential-eight-explainers/">Essential Eight Collection.</a>
 
 The table below lists the Essential Eight, along with the type of typical exploits each strategy helps protect against and a brief example.
 
