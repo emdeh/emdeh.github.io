@@ -1,11 +1,11 @@
 {
   "basics": {
     "name": "Michael",
-    "label": "Technical Project Manager",
+    "Role": "Technical Project Manager",
     "image": "",
     "email": "emdeh-cyber@proton.me",
-    "url": "https://emdeh.com",
-    "summary": "Summary TBA",
+    "LinkedIn": "https://www.linkedin.com/in/emdeh/",
+    "summary": "For a full overview of my experiene, please visit my LinkedIn.",
     "location": {
       "address": "",
       "postalCode": "",
@@ -23,15 +23,74 @@
   },
   "work": [
     {
-      "name": "Institute for Advanced Study, Princeton University",
-      "position": "Professor of Theoretical Physics",
-      "url": "https://example.com",
-      "startDate": "1933-01-01",
-      "endDate": "1955-01-01",
-      "summary": "Teaching at Palmer Physical Laboratory (now 302 Frist Campus Center). While not a professor at Princeton, I associated with the physics professors and continued to give lectures on campus.",
-      "highlights": [
-        "Relativity"
-      ]
+      "name": "Cenitex",
+      "position": "Various Service Desk roles",
+      "startDate": "2012",
+      "endDate": "2014",
+      "summary": "During this period, I held various roles including Service Desk and User Security Analyst,  Senior User Security Anlayst."
+    },
+    {
+      "name": "Cenitex",
+      "position": "Team Lead - User Security, VIP Service Desk, Incident Service Desk",
+      "startDate": "2014",
+      "endDate": "2018",
+      "summary": "Leading various 12-25 person Service Desk teams specialising in Identity and Access Management, Incident Management, and VIP support."
+    },
+    {
+      "name": "Cenitex",
+      "position": "Process and Incident Manager",
+      "startDate": "2016",
+      "endDate": "2017",
+      "summary": "A three-month secondment, primarily backfilling Incident Management functions."
+    },
+    {
+      "name": "Cenitex",
+      "position": "Specialist Senior Business Analyst",
+      "startDate": "2016",
+      "endDate": "2017",
+      "summary": "A five-month secondment, supporting Project Delivery."
+    },
+    {
+      "name": "Cenitex",
+      "position": "Service Delivery Manager",
+      "startDate": "2018",
+      "endDate": "2018",
+      "summary": "Supported a large portfolio of critical government departments during an account management restructure."
+    },
+    {
+      "name": "Department of Premier and Cabinet (Victoria)",
+      "position": "Team Lead - ICT Services",
+      "startDate": "2018",
+      "endDate": "2020",
+      "summary": "Leading an internal departmental team providing level 1 support and managing various Service Providers."
+    },
+    {
+      "name": "Department of Premier and Cabinet (Victoria)",
+      "position": "Infrastructure and Service Delivery Manager",
+      "startDate": "2020",
+      "endDate": "2021",
+      "summary": "TBA"
+    },
+    {
+      "name": "Department of Premier and Cabinet (Victoria)",
+      "position": "Senior Project Officer",
+      "startDate": "2021",
+      "endDate": "2022",
+      "summary": "TBA"
+    },
+    {
+      "name": "Department of Premier and Cabinet (Victoria)",
+      "position": "Technical Project Manager",
+      "startDate": "2021",
+      "endDate": "2022",
+      "summary": "TBA"
+    },
+    {
+      "name": "Australian Charities and Not-for-profits Commission",
+      "position": "Technical Project Manager",
+      "startDate": "2023",
+      "endDate": "",
+      "summary": "TBA"
     }
   ],
   "volunteer": [],
