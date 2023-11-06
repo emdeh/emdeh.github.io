@@ -2,7 +2,7 @@
 layout: post
 title: Essential Eight Explainers
 date: 2023-10-30 10:14:00-0400
-description: Essential Eight security controls
+description: Essential Eight security controls.
 tags: ACSC PSPF ASD ACSC
 categories: Essential-Eight
 thumbnail: /assets/img/2023-essentialeight.png

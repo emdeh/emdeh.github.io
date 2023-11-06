@@ -1,8 +1,8 @@
 ---
 layout: post
 title: Human Disruption - Breaking the Cyber Kill Chain
-date: 2023-11-06 10:14:00-0400
-description: The importance of the human element in disrupting and detecting cyber security threats
+date: 2023-11-05 11:14:00-0400
+description: A brief overview of the importance of the human element in disrupting cyber kill chains.
 tags: security-awareness awareness cyber-kill-chain kill-chain education
 categories: Explainers
 thumbnail: /assets/img/20231106-cyberkillchain.png

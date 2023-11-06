@@ -2,8 +2,8 @@
 layout: post
 title: Pilgrimage
 date: 2023-10-15 10:14:00-0400
-description: Pilgrimage - Hack The Box write-up
-tags: easy-box htb CTF RCE LFI AFR
+description: Pilgrimage - Hack The Box write-up.
+tags: easy-box HTB CTF RCE LFI AFR
 categories: HTB-Machines
 thumbnail: /assets/img/Pilgrimage.png
 giscus_comments: false
