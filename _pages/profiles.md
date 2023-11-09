@@ -2,7 +2,7 @@
 layout: profiles
 permalink: /library/
 title: Library
-description: A growing collection of books I've recently read. For a few list, check out my <a href="https://www.goodreads.com/user/show/163659682?ref=nav_profile_l/"> GoodReads</a>.
+description: A growing collection of books I've recently read.
 nav: true
 nav_order: 6
 
