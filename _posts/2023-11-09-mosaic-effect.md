@@ -2,7 +2,7 @@
 layout: post
 title: The Mosaic Effect
 date: 2023-11-09 19:50:00-0400
-description: "See your identity pieced together from stolen data."
+description: See your identity pieced together from stolen data.
 tags: security-awareness awareness education mosaic-effect PII passwords
 categories: Explainers
 thumbnail: /assets/img/mosaic-effect.png
