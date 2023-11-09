@@ -18,7 +18,7 @@ profiles:
 
   - align: left
     image: fancy-bear.png
-    content: about-fancy-bear.md
+    content: about_fancy-bear.md
     image_circular: false # crops the image to make it circular
     more_info: <a href="https://www.goodreads.com/en/book/show/62039276"> By Scott J. Shapiro</a>
 
