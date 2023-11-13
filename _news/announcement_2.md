@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Updates to the Protective Security Policy Framework
+title: Updates to the Protective Security Policy Framework.
 date: 2023-08-30 07:59:00-0400
 inline: false
 related_posts: false
