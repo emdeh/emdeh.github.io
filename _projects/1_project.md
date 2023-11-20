@@ -45,7 +45,7 @@ The strategies are categorised into five types:
     </div>
 </div>
 <div class="caption">
-    *Source: [cyber.gov.au](https://www.cyber.gov.au/resources-business-and-government/essential-cyber-security/strategies-mitigate-cyber-security-incidents)*
+    *Source: <a href="https://www.cyber.gov.au/resources-business-and-government/essential-cyber-security/strategies-mitigate-cyber-security-incidents"> cyber.gov.au </a>*
 </div>
 
 The strategies are also tagged against three further dimensions:
@@ -208,7 +208,7 @@ Next, implement the preventative strategy of Personnel Management and, again,  i
 When implementing a strategy, first implement for high risk users and computers such as those who access to important data and/or are exposed to untrustworthy internet content. Then implement it for all other users and computers.
 
 ## Useful resources
-- [Essential Eight | Cyber.gov.au](https://www.cyber.gov.au/resources-business-and-government/essential-cyber-security/essential-eight)
-- [Strategies to Mitigate Cyber Security Incidents | Cyber.gov.au](https://www.cyber.gov.au/resources-business-and-government/essential-cyber-security/strategies-mitigate-cyber-security-incidents)
-- [Policies | Protective Security Policy Framework](https://www.protectivesecurity.gov.au/policies)
-- [Policy 10: Safeguarding data from cyber threats | Protective Security Policy Framework](https://www.protectivesecurity.gov.au/publications-library/policy-10-safeguarding-data-cyber-threats)
+- <a href="https://www.cyber.gov.au/resources-business-and-government/essential-cyber-security/essential-eight"> Essential Eight | Cyber.gov.au</a>
+- <a href="https://www.cyber.gov.au/resources-business-and-government/essential-cyber-security/strategies-mitigate-cyber-security-incidents"> Strategies to Mitigate Cyber Security Incidents | Cyber.gov.au </a>
+- <a href="https://www.protectivesecurity.gov.au/policies"> Policies | Protective Security Policy Framework </a>
+- <a href="https://www.protectivesecurity.gov.au/publications-library/policy-10-safeguarding-data-cyber-threats"> Policy 10: Safeguarding data from cyber threats | Protective Security Policy Framework </a>
