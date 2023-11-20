@@ -45,7 +45,7 @@ The strategies are categorised into five types:
     </div>
 </div>
 <div class="caption">
-    *Source: <a href="https://www.cyber.gov.au/resources-business-and-government/essential-cyber-security/strategies-mitigate-cyber-security-incidents"> cyber.gov.au </a>*
+    Source: <a href="https://www.cyber.gov.au/resources-business-and-government/essential-cyber-security/strategies-mitigate-cyber-security-incidents"> cyber.gov.au </a>
 </div>
 
 The strategies are also tagged against three further dimensions:
