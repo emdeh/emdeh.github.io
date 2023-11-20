@@ -5,7 +5,7 @@ permalink: /essential-eight-explainers/
 description: A growing collection of Essential Eight related explainers and POCs.
 nav: true
 nav_order: 2
-display_categories: [Cat1, Cat2]
+display_categories: [Overview]
 horizontal: false
 ---
 
