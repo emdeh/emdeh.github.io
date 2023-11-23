@@ -1,11 +1,15 @@
 ---
-layout: page
+layout: post
 title: Overview of Essential Eight
+date: 2023-11-20 19:50:00-0400
 description: Where did the Essential Eight come from, and who's it for?
-img: /assets/img/2023-essentialeight.png
-importance: 1
-category: Overview
-nav: false
+tags: ACSC PSPF ASD ACSC
+categories: Essential-Eight
+thumbnail: /assets/img/2023-essentialeight.png
+related_posts: true
+toc:
+  sidebar: left
+featured: false
 ---
 
 ## Introduction

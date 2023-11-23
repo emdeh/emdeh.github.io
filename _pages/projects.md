@@ -3,7 +3,7 @@ layout: page
 title: Essential Eight
 permalink: /essential-eight-explainers/
 description: A growing collection of Essential Eight related explainers and POCs.
-nav: true
+nav: false
 nav_order: 2
 display_categories: [Overview]
 horizontal: false

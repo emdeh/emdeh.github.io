@@ -7,9 +7,9 @@ tags: ACSC PSPF ASD ACSC
 categories: Essential-Eight
 thumbnail: /assets/img/2023-essentialeight.png
 giscus_comments: false
-related_posts: false
+related_posts: true
 toc:
-  beginning: true
+  sidebar: left
 featured: false
 ---
 

@@ -9,7 +9,7 @@ children:
       permalink: /blog/category/htb-machines
     - title: divider
     - title: Essential Eight
-      permalink: /essential-eight-explainers/
+      permalink: /blog/category/essential-eight/
     - title: divider
     - title: Explainers
       permalink: /blog/category/explainers/
