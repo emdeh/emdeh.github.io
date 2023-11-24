@@ -25,7 +25,7 @@ When there are mandatory requirements for the implementation of the Essential Ei
 
 The following sections describe the four assessment stages.
 
-## ***Stage 1 - Assessment planning and preparation***
+## Stage 1 - Assessment planning and preparation
 During this stage pre-planning is undertaken to build a contextual overview of the organisation and the threat landscape it operates in. The assessor will aim to gain an understanding of the infrastructure, the teams the assessor will need to interact with, and the skills required to complete the assessment.
 
 As part of planning, the assessor should discuss the following with the asset owner:
@@ -41,10 +41,10 @@ As part of planning, the assessor should discuss the following with the asset ow
 - Agreement on appropriate use, retention and marketing of the assessment report by both parties.
 
 At the end of this stage, the assessor should have developed the assessment test plan.
-## ***Stage 2 - Assessment scoping***
+## Stage 2 - Assessment scoping
 Different maturity levels will impact aspects or components of the assessment. During this stage the assessor should become familiar with the requirements for the target maturity level, so the assessment approach and test plan can be adjusted accordingly.
 
-> ***The Essential Eight should be implemented and assessed as a package. If a system has not previously been assessed and demonstrated to meet Maturity Level One, that system should not be assessed for Maturity Level Two. Likewise, a system should be assessed and demonstrated to meet Maturity Level Two before being assessed for Maturity Level Three.*****
+> ***The Essential Eight should be implemented and assessed as a package. If a system has not previously been assessed and demonstrated to meet Maturity Level One, that system should not be assessed for Maturity Level Two. Likewise, a system should be assessed and demonstrated to meet Maturity Level Two before being assessed for Maturity Level Three.***
 
 As part of determining the appropriate assessment approach, the assessor should conduct the following activities:
 - Make use of asset registers that describe the environment to determine the applicability of the Essential Eight.
@@ -68,7 +68,8 @@ When conducting assessments, the quality of evidence can typically be categorise
 | Fair evidence |Review a copy of a system's configuration (e.g. using reports or screenshots) to determine whether it should enforce an expected control. |
 |Poor evidence |A policy or verbal statement of intent (e.g. sighting mention of controls within artefacts such as as-built documents). |
 
-## ***Stage 3 - Assessment of controls***
+<br>
+## Stage 3 - Assessment of controls
 At this stage the effectiveness of the controls within the Essential Eight are tested against the target Maturity Level.
 
 ACSC ahs developed standardised assessment outcomes which must be used.
@@ -87,7 +88,7 @@ Moreover, when evaluating the efficacy of compensating controls, it's important 
 
 >***There is no scope in the Essential Eight model that allows for risks to be accepted without commensurate compensating controls.***
 
-## *Stage 4 - Development of the assessment report*
+## Stage 4 - Development of the assessment report
 In the final stage, the assessor will develop the security assessment report.
 
 ### Understanding maturity levels.

@@ -67,7 +67,7 @@ For the Essential Eight there are:
 ## Where to start?
 Logically, the advice is to follow a risk-based approach and start with strategies that mitigate the threats of most concern. This will look different for different organisations. The *Strategies to Mitigate Cyber Security Incidents* decompose this into the four following categories.
 
-### 1 - Targeted cyber intrusions and other external malicious actors who steal data.
+### Targeted cyber intrusions and other external malicious actors who steal data.
 
 #### Step 1
 In this category, the first step is to implement the essential mitigation strategies that:
@@ -103,7 +103,7 @@ Next, repeat the first step for the strategies with an effectiveness rating of '
 Lastly, consider what remaining strategies are requires to achieve an acceptable level of residual risk.
 
 
-### 2 - Ransomware and external malicious actors who destroy data
+### Ransomware and external malicious actors who destroy data
 
 #### Step 1
 For this category, the first step is to implement the Essential Eight that:
@@ -139,7 +139,7 @@ Next, repeat the first step for the strategies with an effectiveness rating of '
 Lastly, consider what remaining strategies are requires to achieve an acceptable level of residual risk.
 
 
-### 3 - Malicious insiders who steal data.
+### Malicious insiders who steal data.
 
 #### Step 1 and 2
 For this category, the first step is to implement data exfiltration by implementing the strategy *‘Control removable storage media and connected devices’*. Second is to implement the limiting strategy: *Outbound web and email data loss prevention'.*
@@ -176,7 +176,7 @@ Lastly, if employees are likely to have the technical cyber security capabilitie
 14. User application hardening
 
 
-### 4 - Malicious insiders who destroy data and prevent systems functioning.
+### Malicious insiders who destroy data and prevent systems functioning.
 
 #### Step 1
 For this category, the first step is to implement the Essential Eight that:
