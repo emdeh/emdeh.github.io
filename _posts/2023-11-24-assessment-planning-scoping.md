@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Assessment planning and scoping
-date: 2023-11-24 19:50:00-0400
+date: 2023-11-24 07:00:00-0400
 description: The four stages of assessment
 tags: ACSC PSPF ASD ACSC
 categories: Essential-Eight

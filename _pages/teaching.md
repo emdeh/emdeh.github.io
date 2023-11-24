@@ -1,7 +1,7 @@
 ---
 layout: page
-permalink: /blog/category/essential-eight/
-title: Essential Eight
+permalink: /teaching/
+title: no title
 description: 
 nav: false
 nav_order: 2
