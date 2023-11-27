@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Essential Eight Maturity Model annual update
-date: 2023-11-26 11:00:00-0500
+date: 2023-11-27 11:00:00-0500
 description: The November 2023 update of the Essential Eight Maturity Model introduces several changes across three maturity levels.
 tags: ACSC PSPF ASD ACSC
 categories: Essential-Eight
