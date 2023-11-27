@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Essential Eight Maturity Model annual update
-date: 2023-11-27 11:00:00-0500
+date: 2023-11-26 11:00:00-0500
 description: The November 2023 update of the Essential Eight Maturity Model introduces several changes across three maturity levels.
 tags: ACSC PSPF ASD ACSC
 categories: Essential-Eight
@@ -14,7 +14,7 @@ featured: false
 
 ## Introduction
 
-As mentioend in <a href="https://emdeh.com/news/announcement_7/"> this news item</a>,the updates draw upon various sources, including cyber threat intelligence, feedback from government and industry sectors globally, insights from penetration tests, Essential Eight assessments, uplift activities, and responses to ASD's annual cyber survey.
+As mentioend in <a href="https://emdeh.com/news/announcement_7"> this news item</a>, the updates draw upon various sources, including cyber threat intelligence, feedback from government and industry sectors globally, insights from penetration tests, Essential Eight assessments, uplift activities, and responses to ASD's annual cyber survey.
 
 Key areas of focus in the latest update include:
 
