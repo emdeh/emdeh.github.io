@@ -1,0 +1,3 @@
+Tracers in the Dark: The Global Hunt for the Crime Lords of Cryptocurrency does a great job of dispelling the popular myth that Bitcoin is some untraceable, anonymous currency that only facilitates and enables transactions for nefarious and illegal activities. Of course, like every currency, it *is* used for nefarious reasons, but the book illustrates that it is by no means beyond the reach of law enforcement - at least not anymore. 
+
+If you like true crime, wild stranger-than-fiction stories, or tech, you'll enjoy this book. If you don't know much about crypto or blockchain technologies and want to learn, you'll get a solid understanding of the foundations too - it's accessible and wonderfully written. Highly recommend.
