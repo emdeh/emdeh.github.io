@@ -23,7 +23,7 @@ profiles:
     more_info: <a href="https://www.goodreads.com/en/book/show/62039276"> By Scott J. Shapiro</a>
 
   - align: right
-    image: tracers-in-the-dark-cover.jpg
+    image: tracers-in-the-dark-cover.png
     content: about_tracer-in-the-dark.md
     image_circular: false # crops the image to make it circular
     more_info: <a href="https://www.goodreads.com/book/show/60462182-tracers-in-the-dark"> By Andy Greenberg</a>
