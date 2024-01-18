@@ -12,8 +12,9 @@ toc:
   beginning: true
 featured: false
 ---
-
+---
 # Introduction
+
 
 Pilgrimage is a relatively challenging Easy box where an Arbitrary File Read vulnerability is exploited to steal a username..
 
@@ -49,6 +50,8 @@ For instance, you might use binwalk to:
 - Identify embedded file systems in a firmware image.
 - Extract those file systems for further analysis.
 - Identify executable code, or other types of data, embedded in the firmware.
+
+---
 
 # Enumeration
 
