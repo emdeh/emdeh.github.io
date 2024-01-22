@@ -11,9 +11,11 @@ related_posts: true
 toc:
   beginning: true
 featured: false
+
 ---
 
 # Introduction
+
 
 Pilgrimage is a relatively challenging Easy box where an Arbitrary File Read vulnerability is exploited to steal a username..
 
@@ -32,13 +34,17 @@ This is ultimately used to elevate privileges to `root`.
 | [Pspy](https://github.com/DominicBreuker/pspy)| pspy is a command line tool designed to snoop on processes without need for root permissions. It allows you to see commands run by other users, cron jobs, etc. as they execute. Great for enumeration of Linux systems in CTFs. Also great to demonstrate your colleagues why passing secrets as arguments on the command line is a bad idea.
 | [CVE-2022-4510-Binwalk RCE Poc](https://github.com/adhikara13/CVE-2022-4510-WalkingPath#cve-2022-4510-binwalk)|This script allows you to generate exploits for targeting CVE-2022-4510 Binwalk vulnerabilities. The exploits can be used for testing and demonstrations. The supported options include SSH, command execution, and reverse shell.|
 
+
+
 ## What's an Arbitrary File Read
 
 An Arbitrary File Read vulnerability allows an attacker to read files on a system that they shouldn't have access to. This could include sensitive configuration files, database credentials, or any other sensitive data stored on the server. The vulnerability occurs due to improper validation or lack of permissions in the application's code, and it can lead to information disclosure or further exploitation if chained with other vulnerabilities.
 
+
 ## What's a Local File Inclusion (LFI)
 
 A Local File Inclusion (LFI) vulnerability allows an attacker to include files from the server's local filesystem into the output of a web application. This can lead to sensitive information disclosure, such as reading the /etc/passwd file on a Linux machine. LFI vulnerabilities typically occur due to poor validation of user input in web applications and can sometimes be escalated to execute arbitrary code on the server.
+
 
 ## What's binwalk?
 
@@ -49,6 +55,8 @@ For instance, you might use binwalk to:
 - Identify embedded file systems in a firmware image.
 - Extract those file systems for further analysis.
 - Identify executable code, or other types of data, embedded in the firmware.
+
+---
 
 # Enumeration
 
@@ -83,6 +91,9 @@ Browsing to IP returns `http://pilgrimage.htb/`. Add to hosts:
 ```bash
 10.129.80.229 pilgrimage.htb
 ```
+
+---
+
 # Site enumeration
 
 Lands on a site that appears to be a free online image shrinker.
@@ -121,6 +132,8 @@ PORT   STATE SERVICE VERSION
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 14.81 seconds
 ```
+
+---
 
 # Git Repo enumeration
 Used https://github.com/arthaud/git-dumper.git to dump git repo:
