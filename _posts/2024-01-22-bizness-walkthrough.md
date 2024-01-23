@@ -61,6 +61,7 @@ SSRF is a significant security concern in modern web applications, especially th
 - **<a href="https://github.com/jakabakos/Apache-OFBiz-Authentication-Bypass">CVE-2023-51467 POC</a>)** for vulnerability scanning and initial access.
 - **<a href="https://github.com/carlospolop/PEASS-ng/tree/master/linPEAS">Linpeas</a>** for system enumeration.
 - **<a href="https://medium.com/@mastercode112/htb-bizness-easy-writeup-bacce3ba0969">Custom python script</a>** to convert custom SHA hash.
+
 ## Tactics
 
 - **Establishing persistence** via rogue SSH keys.
