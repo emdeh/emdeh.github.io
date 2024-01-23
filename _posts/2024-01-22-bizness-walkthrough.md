@@ -413,19 +413,27 @@ Switching to `root` and trying the password works, and the root flag is obtained
 <li id="note1"> <a href="#ref1">↩</a></li> The command breakdown is:
 
   1. **`find seg0 -type f`**:
-  
+
       - `find`: This is a command used to search for files in a directory >hierarchy.
+
       - `seg0`: This specifies the directory where the `find` command starts its search. In this case, it's looking in the `seg0` directory.
+
       - `-type f`: This option tells `find` to look for files (not directories).
 
   2. **`-exec cat {} \;`**:
+
       - `-exec`: This option of the `find` command allows you to execute another command on each of the files found.
+
       - `cat {}`: This is the command that `find` will execute on each file. `cat` is a standard Unix utility that reads files and outputs their content. The `{}` is a placeholder for each file `find` locates.
+
       - `\;`: This is a delimiter that indicates the end of the `exec` command.
 
   3. **`> dir.txt`**:
+
       - `>`: This is an output redirection operator in Unix/Linux. It directs the output from the preceding command to a file.
+
       - `dir.txt`: This is the file into which the output of the previous commands will be saved. 
+      
         
 <li id="note2"><a href="#ref2">↩</a></li>
 
