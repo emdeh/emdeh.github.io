@@ -362,31 +362,9 @@ The `seg0` database contains a number of .dat files.
 
 >*ChatGPT was kind enough to explain that .dat files in the context of Apache OFBiz  are used for data loading purposes. Given the README notice, it's possible that these files might contain credentials.*
 
-The command `find seg0 -type f -exec cat {} \; > dir.txt` can be used to create a file that contains the combined contents of all the files found in the `seg0` directory and its subdirectories. 
+The command `find seg0 -type f -exec cat {} \; > dir.txt`[^1] can be used to create a file that contains the combined contents of all the files found in the `seg0` directory and its subdirectories. 
 
 This can be useful for consolidating data or logs spread across multiple files into a single document for easier analysis or review.
-
----
-> The command breakdown is:
-> 
->1. **`find seg0 -type f`**:
->  
->    - `find`: This is a command used to search for files in a directory >hierarchy.
->    - `seg0`: This specifies the directory where the `find` command starts its search. In this case, it's looking in the `seg0` directory.
->    - `-type f`: This option tells `find` to look for files (not directories).
->
->2. **`-exec cat {} \;`**:
->  
->    - `-exec`: This option of the `find` command allows you to execute another command on each of the files found.
->    - `cat {}`: This is the command that `find` will execute on each file. `cat` is a standard Unix utility that reads files and outputs their content. The `{}` is a placeholder for each file `find` locates.
->    - `\;`: This is a delimiter that indicates the end of the `exec` command.
->     
->3. **`> dir.txt`**:
->  
->    - `>`: This is an output redirection operator in Unix/Linux. It directs the output from the preceding command to a file.
->    - `dir.txt`: This is the file into which the output of the previous commands will be saved.
-
----
 
 The command `strings dir.txt | grep SHA` can then be used to extract printable strings from the consolidated file and search for any occurrence of text. After many attempts, the string "SHA" was tried.
 
@@ -452,3 +430,22 @@ Switching to `root` and trying the password works, and the root flag is obtained
 
 <img src="/assets/img/20240123-bizness/20240123-rootflag.png" alt="20240123-rootflag.png" class="auto-resize">
 
+# Footnotes
+
+[^1]:
+The command breakdown is:
+1. **`find seg0 -type f`**:
+    - `find`: This is a command used to search for files in a directory >hierarchy.
+    - `seg0`: This specifies the directory where the `find` command starts its search. In this case, it's looking in the `seg0` directory.
+    - `-type f`: This option tells `find` to look for files (not directories).
+
+
+2. **`-exec cat {} \;`**:
+    - `-exec`: This option of the `find` command allows you to execute another command on each of the files found.
+    - `cat {}`: This is the command that `find` will execute on each file. `cat` is a standard Unix utility that reads files and outputs their content. The `{}` is a placeholder for each file `find` locates.
+    - `\;`: This is a delimiter that indicates the end of the `exec` command.
+     
+
+3. **`> dir.txt`**:
+    - `>`: This is an output redirection operator in Unix/Linux. It directs the output from the preceding command to a file.
+    - `dir.txt`: This is the file into which the output of the previous commands will be saved.
