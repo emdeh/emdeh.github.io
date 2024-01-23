@@ -209,10 +209,10 @@ Picked up _JAVA_OPTIONS: -Dawt.useSystemAAFontSettings=on -Dswing.aatext=true
 [+] The request has been successfully sent. Check the result of the command.   
 ```
 
-Now that `netcat` is on the target, a listener can be established on a local machine to receive a reverse-shell:
+Now that `netcat` is on the target, a listener can be established on a local machine to receive a reverse-shell[^2].
 
 ```bash
-rlwrap -cAr nc -lvnp 4321[^rlwrap -cAr nc -lvnp 4321]
+rlwrap -cAr nc -lvnp 4321
 ```
 
 Once a listener is active, a subsequent command can be sent to the target which will execute `netcat` on the target to establish the reverse shell.
@@ -338,7 +338,7 @@ The `seg0` database contains a number of .dat files.
 
 >*ChatGPT was kind enough to explain that .dat files in the context of Apache OFBiz  are used for data loading purposes. Given the README notice, it's possible that these files might contain credentials.*
 
-The command `find seg0 -type f -exec cat {} \; > dir.txt`[^find seg0 -type f -exec cat {} \; > dir.txt] can be used to create a file that contains the combined contents of all the files found in the `seg0` directory and its subdirectories. 
+The command `find seg0 -type f -exec cat {} \; > dir.txt` can be used to create a file that contains the combined contents of all the files found in the `seg0` directory and its subdirectories[^1]. 
 
 This can be useful for consolidating data or logs spread across multiple files into a single document for easier analysis or review.
 
@@ -409,25 +409,24 @@ Switching to `root` and trying the password works, and the root flag is obtained
 
 # Footnotes
 
-[^find seg0 -type f -exec cat {} \; > dir.txt]:
+[^1]:
   The command breakdown is:
-  1. **`find seg0 -type f`**:
-      - `find`: This is a command used to search for files in a directory >hierarchy.
-      - `seg0`: This specifies the directory where the `find` command starts its search. In this case, it's looking in the `seg0` directory.
-      - `-type f`: This option tells `find` to look for files (not directories).
+    1. **`find seg0 -type f`**:
+        - `find`: This is a command used to search for files in a directory >hierarchy.
+        - `seg0`: This specifies the directory where the `find` command starts its search. In this case, it's looking in the `seg0` directory.
+        - `-type f`: This option tells `find` to look for files (not directories).
 
-  2. **`-exec cat {} \;`**:
-      - `-exec`: This option of the `find` command allows you to execute another command on each of the files found.
-      - `cat {}`: This is the command that `find` will execute on each file. `cat` is a standard Unix utility that reads files and outputs their content. The `{}` is a placeholder for each file `find` locates.
-      - `\;`: This is a delimiter that indicates the end of the `exec` command.
+    2. **`-exec cat {} \;`**:
+        - `-exec`: This option of the `find` command allows you to execute another command on each of the files found.
+        - `cat {}`: This is the command that `find` will execute on each file. `cat` is a standard Unix utility that reads files and outputs their content. The `{}` is a placeholder for each file `find` locates.
+        - `\;`: This is a delimiter that indicates the end of the `exec` command.
 
-  3. **`> dir.txt`**:
-      - `>`: This is an output redirection operator in Unix/Linux. It directs the output from the preceding command to a file.
-      - `dir.txt`: This is the file into which the output of the previous commands will be saved.
-
-[^rlwrap -cAr nc -lvnp 4321]:
+    3. **`> dir.txt`**:
+        - `>`: This is an output redirection operator in Unix/Linux. It directs the output from the preceding command to a file.
+        - `dir.txt`: This is the file into which the output of the previous commands will be saved.
+        
+[^2]:
   The command `rlwrap -cAr nc -lvnp 9010` is a combination of several utilities and options that are commonly used in reverse shell setups. Here's a breakdown of the command:
-
 
   1. **`rlwrap`**: 
       - This is a utility that provides readline capabilities to commands that may not have them. Readline allows for command line editing, persistent history, and auto-completion. In the context of this command, `rlwrap` is used to enhance the functionality of `nc` (Netcat).
