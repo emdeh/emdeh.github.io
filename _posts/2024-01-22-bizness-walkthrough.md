@@ -236,7 +236,7 @@ rlwrap -cAr nc -lvnp 4321
 > 	  - `-p 4321`: Specifies the port number on which Netcat will listen for incoming connections.
 >
 >
-> So, putting it all together, `rlwrap -cAr nc -lvnp 4321` runs Netcat in listening mode on port 4321 with enhanced readline capabilities provided by `rlwrap`. This setup is typically used when you're expecting to receive a reverse shell, and you want the ability to interact with that shell more effectively using command history and completion. *
+> So, putting it all together, `rlwrap -cAr nc -lvnp 4321` runs Netcat in listening mode on port 4321 with enhanced readline capabilities provided by `rlwrap`. This setup is typically used when you're expecting to receive a reverse shell, and you want the ability to interact with that shell more effectively using command history and completion.
 ---
 
 Once a listener is active, a subsequent command can be sent to the target which will execute `netcat` on the target to establish the reverse shell.
@@ -385,6 +385,7 @@ This can be useful for consolidating data or logs spread across multiple files i
 >  
 >    - `>`: This is an output redirection operator in Unix/Linux. It directs the output from the preceding command to a file.
 >    - `dir.txt`: This is the file into which the output of the previous commands will be saved.
+
 ---
 
 The command `strings dir.txt | grep SHA` can then be used to extract printable strings from the consolidated file and search for any occurrence of text. After many attempts, the string "SHA" was tried.
