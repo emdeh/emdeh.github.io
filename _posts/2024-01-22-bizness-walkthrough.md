@@ -413,6 +413,7 @@ Switching to `root` and trying the password works, and the root flag is obtained
 <li id="note1"> <a href="#ref1">↩</a></li> The command breakdown is:
 
   1. **`find seg0 -type f`**:
+  
       - `find`: This is a command used to search for files in a directory >hierarchy.
       - `seg0`: This specifies the directory where the `find` command starts its search. In this case, it's looking in the `seg0` directory.
       - `-type f`: This option tells `find` to look for files (not directories).
