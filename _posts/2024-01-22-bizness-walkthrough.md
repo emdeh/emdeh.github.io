@@ -209,7 +209,7 @@ Picked up _JAVA_OPTIONS: -Dawt.useSystemAAFontSettings=on -Dswing.aatext=true
 [+] The request has been successfully sent. Check the result of the command.   
 ```
 
-Now that `netcat` is on the target, a listener can be established on a local machine to receive a reverse-shell.<sup><a href="#note2" id="ref2">2</a></sup></p>
+Now that `netcat` is on the target, a listener can be established on a local machine to receive a reverse-shell.<sup><a href="#note1" id="ref1">1</a></sup>
 
 ```bash
 rlwrap -cAr nc -lvnp 4321
@@ -338,7 +338,7 @@ The `seg0` database contains a number of .dat files.
 
 >*ChatGPT was kind enough to explain that .dat files in the context of Apache OFBiz  are used for data loading purposes. Given the README notice, it's possible that these files might contain credentials.*
 
-The command `find seg0 -type f -exec cat {} \; > dir.txt` can be used to create a file that contains the combined contents of all the files found in the `seg0` directory and its subdirectories.<sup><a href="#note1" id="ref1">1</a></sup></p>
+The command `find seg0 -type f -exec cat {} \; > dir.txt` can be used to create a file that contains the combined contents of all the files found in the `seg0` directory and its subdirectories.<sup><a href="#note2" id="ref2">2</a></sup>
 
 This can be useful for consolidating data or logs spread across multiple files into a single document for easier analysis or review.
 
@@ -408,49 +408,59 @@ Switching to `root` and trying the password works, and the root flag is obtained
 
 
 # Footnotes
-
 <ol>
-<li id="note1"> <a href="#ref1">↩</a></li> The command breakdown is:
-
-  1. **`find seg0 -type f`**:
-
-      - `find`: This is a command used to search for files in a directory >hierarchy.
-
-      - `seg0`: This specifies the directory where the `find` command starts its search. In this case, it's looking in the `seg0` directory.
-
-      - `-type f`: This option tells `find` to look for files (not directories).
-
-  2. **`-exec cat {} \;`**:
-
-      - `-exec`: This option of the `find` command allows you to execute another command on each of the files found.
-
-      - `cat {}`: This is the command that `find` will execute on each file. `cat` is a standard Unix utility that reads files and outputs their content. The `{}` is a placeholder for each file `find` locates.
-
-      - `\;`: This is a delimiter that indicates the end of the `exec` command.
-
-  3. **`> dir.txt`**:
-
-      - `>`: This is an output redirection operator in Unix/Linux. It directs the output from the preceding command to a file.
-
-      - `dir.txt`: This is the file into which the output of the previous commands will be saved. 
-      
+    <li id="note1"> 
+        <a href="#ref1">↩</a>
+        The command <code>rlwrap -cAr nc -lvnp 9010</code> is a combination of several utilities and options that are commonly used in reverse shell setups. Here's a breakdown of the command:
+        <ul>
+            <li><strong><code>rlwrap</code></strong>: 
+                <ul>
+                    <li>This is a utility that provides readline capabilities to commands that may not have them. Readline allows for command line editing, persistent history, and auto-completion. In the context of this command, <code>rlwrap</code> is used to enhance the functionality of <code>nc</code> (Netcat).</li>
+                </ul>
+            </li>
+            <li><strong><code>-cAr</code></strong>: These are options for <code>rlwrap</code>:
+                <ul>
+                    <li><code>-c</code>: Enables command completion.</li>
+                    <li><code>-A</code>: Enables command auto-completion.</li>
+                    <li><code>-r</code>: Keeps a history of commands.</li>
+                </ul>
+            </li>
+            <li><strong><code>-lvnp 4321</code></strong>: These are options for <code>nc</code>:
+                <ul>
+                    <li><code>-l</code>: Puts Netcat into listening mode, where it waits for incoming connections.</li>
+                    <li><code>-v</code>: Verbose mode. Netcat will provide more information about what it's doing.</li>
+                    <li><code>-n</code>: No DNS. Tells Netcat not to resolve hostnames via DNS. This can speed up operations if DNS resolution is not required.</li>
+                    <li><code>-p 4321</code>: Specifies the port number on which Netcat will listen for incoming connections.</li>
+                </ul>
+            </li>
+        </ul>
+        So, putting it all together, <code>rlwrap -cAr nc -lvnp 4321</code> runs Netcat in listening mode on port 4321 with enhanced readline capabilities provided by <code>rlwrap</code>. This setup is typically used when you're expecting to receive a reverse shell, and you want the ability to interact with that shell more effectively using command history and completion.
+    </li>    
         
-<li id="note2"><a href="#ref2">↩</a></li>
+    <li id="note2">
+        <a href="#ref2">↩</a>
+        <ul>
+            <li><strong><code>find seg0 -type f</code></strong>:
+                <ul>
+                    <li><code>find</code>: This is a command used to search for files in a directory hierarchy.</li>
+                    <li><code>seg0</code>: This specifies the directory where the <code>find</code> command starts its search. In this case, it's looking in the <code>seg0</code> directory.</li>
+                    <li><code>-type f</code>: This option tells <code>find</code> to look for files (not directories).</li>
+                </ul>
+            </li>
+            <li><strong><code>-exec cat {} \;</code></strong>:
+                <ul>
+                    <li><code>-exec</code>: This option of the <code>find</code> command allows you to execute another command on each of the files found.</li>
+                    <li><code>cat {}</code>: This is the command that <code>find</code> will execute on each file. <code>cat</code> is a standard Unix utility that reads files and outputs their content. The <code>{}</code> is a placeholder for each file <code>find</code> locates.</li>
+                    <li><code>\;</code>: This is a delimiter that indicates the end of the <code>exec</code> command.</li>
+                </ul>
+            </li>
+            <li><strong><code>&gt; dir.txt</code></strong>:
+                <ul>
+                    <li><code>&gt;</code>: This is an output redirection operator in Unix/Linux. It directs the output from the preceding command to a file.</li>
+                    <li><code>dir.txt</code>: This is the file into which the output of the previous commands will be saved.</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+</ol>
 
-The command `rlwrap -cAr nc -lvnp 9010` is a combination of several utilities and options that are commonly used in reverse shell setups. Here's a breakdown of the command:
-
-1. **`rlwrap`**: 
-    - This is a utility that provides readline capabilities to commands that may not have them. Readline allows for command line editing, persistent history, and auto-completion. In the context of this command, `rlwrap` is used to enhance the functionality of `nc` (Netcat).
-
-2. **`-cAr`**: These are options for `rlwrap`:
-    - `-c`: Enables command completion.
-    - `-A`: Enables command auto-completion.
-    - `-r`: Keeps a history of commands.
-
-3. **`-lvnp 4321`**: These are options for `nc`:
-    - `-l`: Puts Netcat into listening mode, where it waits for incoming connections.
-    -  `-v`: Verbose mode. Netcat will provide more information about what it's doing.
-    - `-n`: No DNS. Tells Netcat not to resolve hostnames via DNS. This can speed up operations if DNS resolution is not required.
-    - `-p 4321`: Specifies the port number on which Netcat will listen for incoming connections.
-    
-So, putting it all together, `rlwrap -cAr nc -lvnp 4321` runs Netcat in listening mode on port 4321 with enhanced readline capabilities provided by `rlwrap`. This setup is typically used when you're expecting to receive a reverse shell, and you want the ability to interact with that shell more effectively using command history and completion.
