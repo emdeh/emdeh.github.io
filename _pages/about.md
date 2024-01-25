@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: /ˈem di eɪtʃ/
+subtitle: /ɛm diː eɪtʃ/
 
 profile:
   align: right
