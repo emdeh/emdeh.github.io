@@ -13,8 +13,7 @@ featured: false
 ---
 
 # Introduction
-<br>
-<br>
+
 
 ## Control objective
 
@@ -94,10 +93,7 @@ Based on the system's setup, some overlap may be present; for example, `%temp%` 
         <td><strong>Event logs are monitored for signs of compromise and actioned when any signs of compromise are detected.</strong></td>
     </tr>
 </table>
-
 <br>
-<br>
-
 
 # Assessing Application Control
 
@@ -155,7 +151,6 @@ Running `whoami /groups` would also need to be executed to determine which user 
 
 This approach is, however, likely to be tedious in assessing effectively.
 <br>
-<br>
 
 # Maturity Level 1 guidance
 
@@ -179,7 +174,6 @@ Whereas ML1 is focussed on EUC endpoints, ML2 extends application control to int
 # Maturity Level 3 guidance
 
 ML3 builds on ML2 in that it requires monitoring of logs, application control on *all* servers, and the implementation of Microsoft's block rules. Application control rulesets also need to be validated no less than annually.
-<br>
 <br>
 
 # Other information
