@@ -11,6 +11,9 @@ children:
     - title: Essential Eight
       permalink: /blog/category/essential-eight/
     - title: divider
+    - title: Artificial Intelligence
+      permalink: /blog/category/artificial-intelligence/
+    - title: divider
     - title: Explainers
       permalink: /blog/category/explainers/
 ---

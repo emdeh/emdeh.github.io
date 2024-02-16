@@ -6,6 +6,9 @@ github_repos:
   - emdeh/useful-powershell-scripts
   - emdeh/useful-bash-scripts
   - emdeh/wifi-enabled-coop-door
+  - emdeh/azurechat
+  - emdeh/web-crawl-qna-blog-bot
+  - emdeh/ruleset-search
   - emdeh/azurebot
   - emdeh/CMEmodule
   - emdeh/nmap-assistant
