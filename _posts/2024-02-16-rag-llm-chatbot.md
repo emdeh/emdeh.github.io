@@ -8,7 +8,7 @@ categories: Artificial-Intelligence
 thumbnail: /assets/img/2024-rag-chatbot/rag-icon.webp
 related_posts: true
 toc:
-  sidebar: left
+  beginning: true
 featured: false
 ---
 
