@@ -9,12 +9,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Set up Git
-          run: |
-            git config --global user.email "you@example.com"
-            git config --global user.name "Your Name"
-            
+        run: |
+          git config --global user.email "emdeh-cyber@proton.me"
+          git config --global user.name "emdeh"
+
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2
 
       - name: Fetch upstream-changes branch
         run: git fetch origin upstream-changes
