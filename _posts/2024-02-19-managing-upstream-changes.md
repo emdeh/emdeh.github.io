@@ -1,6 +1,6 @@
 ---
 layout: post
-title: GitHub - Managing upstream changes.
+title: GitHub - Managing upstream changes
 date: 2024-02-19 19:50:00-0400
 description: An overview of how to manage upstream changes in a GitHub repository
 tags: upstream-changes git github git-pull git-fetch
@@ -16,7 +16,7 @@ featured: false
 # Introduction
 When a GitHub repository is forked, it can maintain a connection with original codebase. The original is called the **upstream** repository or branch. This connection means that the forked repository can be modified as needed, but if there are also changes made to the original, such as new features, they can be integrated into the forked version.
 
-This article outlines the steps to pull changes from an upstream repository into forked version. Specifically, it outlines how to pull changes into a separate branch for testing and then how to **merge** those changes into the main branch of the fork after testing and resolving any conflicts.
+This article outlines the steps to pull changes from an upstream repository into forked version. Specifically, it outlines how to pull changes into a separate branch for testing and then how to **merge** those changes into the main branch of the fork after testing and resolving any conflicts. 
 
 ## High-level workflow for Merging Upstream Changes:
 

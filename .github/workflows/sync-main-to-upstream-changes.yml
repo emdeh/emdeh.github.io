@@ -19,5 +19,5 @@ jobs:
 
       - name: Merge changes from main into upstream-changes
         run: |
-          git merge --strategy-option theirs main
+          git merge --strategy-option theirs --allow-unrelated-histories main
           git push origin upstream-changes
