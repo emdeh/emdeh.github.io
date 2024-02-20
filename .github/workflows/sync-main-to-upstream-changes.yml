@@ -1,0 +1,18 @@
+name: Sync Upstream Changes
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  sync-upstream:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Merge changes from main into upstream-changes
+        run: |
+          git checkout upstream-changes
+          git merge --strategy-option theirs main
+          git push origin upstream-changes
