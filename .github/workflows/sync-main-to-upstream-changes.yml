@@ -8,6 +8,11 @@ jobs:
   sync-upstream:
     runs-on: ubuntu-latest
     steps:
+      - name: Set up Git
+          run: |
+            git config --global user.email "you@example.com"
+            git config --global user.name "Your Name"
+            
       - name: Checkout
         uses: actions/checkout@v3
 

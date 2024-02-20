@@ -1,6 +1,6 @@
 ---
 layout: post
-title: GitHub - Managing upstream changes.
+title: GitHub - Managing upstream changes
 date: 2024-02-19 19:50:00-0400
 description: An overview of how to manage upstream changes in a GitHub repository
 tags: upstream-changes git github git-pull git-fetch
