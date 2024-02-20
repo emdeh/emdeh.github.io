@@ -1,4 +1,4 @@
-name: Sync Upstream Changes
+name: Sync main branch to upstream-changes branch
 on:
   push:
     branches:
@@ -9,10 +9,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
+
+      - name: Fetch upstream-changes branch
+        run: git fetch origin upstream-changes
+
+      - name: Checkout upstream-changes branch
+        run: git checkout -b upstream-changes origin/upstream-changes
 
       - name: Merge changes from main into upstream-changes
         run: |
-          git checkout upstream-changes
           git merge --strategy-option theirs main
           git push origin upstream-changes
