@@ -19,7 +19,7 @@ jobs:
       - name: actions-template-sync
         uses: AndreasAugustin/actions-template-sync@v1.5.0
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.SYNC_BLOG_TEMPLATE_TOKEN }}
           source_repo_path: alshedivat/al-folio
           upstream_branch: master
 
