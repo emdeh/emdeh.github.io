@@ -19,10 +19,8 @@ jobs:
       - name: Fetch upstream-changes branch
         run: git fetch origin upstream-changes
 
-      - name: Checkout upstream-changes branch
-        run: git checkout -b upstream-changes origin/upstream-changes
+      - name: Reset upstream-changes branch to main
+        run: git reset --hard origin/main
 
-      - name: Merge changes from main into upstream-changes
-        run: |
-          git pull origin main --force-with-lease
-          git push origin upstream-changes
+      - name: Push changes to upstream-changes
+        run: git push --force-with-lease origin upstream-changes
