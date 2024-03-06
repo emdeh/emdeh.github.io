@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Optimising LLM Performance
-date: 2024-02-19 19:50:00-0400
+date: 2024-03-06 19:50:00-0400
 description: A discussion on a few techniques to maximise LLM performance
 tags: RAG LLM retrieval-augmented-generation large-language-models few-shot-examples few-shot-learning ragas HyDE fine-tuning serial-position-effect lost-in-the-middle
 categories: Artificial-Intelligence
