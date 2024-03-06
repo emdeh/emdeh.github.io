@@ -2,10 +2,10 @@
 layout: post
 title: Optimising LLM Performance
 date: 2024-02-19 19:50:00-0400
-description: A discussion on some techniques to maximise LLM performance
+description: A discussion on a few techniques to maximise LLM performance
 tags: RAG LLM retrieval-augmented-generation large-language-models few-shot-examples few-shot-learning ragas HyDE fine-tuning serial-position-effect lost-in-the-middle
 categories: Artificial-Intelligence
-thumbnail: 
+thumbnail: /assets/img/20243-llm-performance/llm-performance-logo.webp
 giscus_comments: false
 related_posts: true
 toc:
@@ -68,7 +68,7 @@ HyDE techniques can be helpful in cases where the model will receive questions t
 
 HyDE won't always yield good results. For example, if the question is about a topic that the LLM is unfamiliar with - such as some new concept that was not present in the pre-trained knowledge - then it will likely lead to an increase in inaccurate results and hallucinations. The reason is that if it doesn't know anything about the topic, the hypothetical answer it created to retrieve context will have no basis in reality...a hallucination, in other words.
 
-This is probably why OpenAI presented HyDE i in the video with the "+ fact-checking step"!
+This is probably why OpenAI presented HyDE i in the video with the <em>+ fact-checking step</em>!
 
 ### RAG evaluation
 It's important to remember that by adding RAG to a solution, there is now an entirely new bunch of things that can go wrong. As John points out in the video, LLMs already hallucinate all on their own. If the context the model uses to ground its responses is fundamentally or systematically flawed, understanding whether the solution fails because of the RAG integration or an inherently hallucinatory trait within the model will be challenging. For this reason, evaluation frameworks are crucial.
