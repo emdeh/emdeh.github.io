@@ -20,4 +20,4 @@ Hi there, with over a decade of Australian-based public service experience in IC
 
 This is a space for me to build out a portfoliio of articles and notes based on my studies in these areas. It's primarily for my own reference, but perhaps it'll be useful for others too.
 
-I'll post [CTF walkthroughs](/blog/category/htb-machines) that I complete, short conceptual [explainers](/blog/category/explainers/), small [Artificial Intellgience](/blog/category/artificial-intelligence) projects I create, and intend to do a series explaining the Australian Signals Directorate's [Essential Eight](/blog/category/essential-eight/) Strategies to Mitigate Cyber Security Incidents.
+I'll post [CTF walkthroughs](/blog/category/htb-machines) that I complete, short conceptual [explainers](/blog/category/explainers/), small [Artificial Intellgience](/blog/category/artificial-intelligence) projects and articles, and intend to do a series explaining the Australian Signals Directorate's [Essential Eight](/blog/category/essential-eight/) Strategies to Mitigate Cyber Security Incidents.
