@@ -51,7 +51,7 @@ Few-shot learning, on the other hand, is the broader concept or methodology that
 ## Is it a context issue?
 Prompt engineering alone is unlikely to be sufficient in more complex use cases, and it doesn't scale well (remember, we want a Production-grade solution).
 
-Optimising with RAG is a logical next step if prompt engineering has revealed a context issue. You can see this article for an overview of RAG (or skip to this part of the video).
+Optimising with RAG is a logical next step if prompt engineering has revealed a context issue. You can see <a href="https://emdeh.com/blog/2024/rag-llm-chatbot/">this article</a> for an overview of RAG (or <a href="https://youtu.be/ahnGLM-RC1Y?si=QKwCMVozmxdPsBcU&t=712"> skip to this part of the video</a>).
 
 ### Retrieval Augmented Generation (RAG)
 RAG is typically good for introducing new information to the model, updating its knowledge, and reducing hallucinations by controlling content. If done correctly, the model will act as if it is explicitly amnesic to everything it was trained on while still retaining its implicit intelligence. In other words, the only knowledge it explicitly has is what has been provided in the RAG implementation. 
@@ -59,7 +59,7 @@ RAG is typically good for introducing new information to the model, updating its
 #### Simple retrieval
 Adding a simple RAG retrieval will ground the model in the desired context source. A simple way to provide the model access to a repository from which it can pull data, for example, is through embeddings and cosine similarity algorithms.
 
-(Cosine similarity algorithms measure the cosine of the angle between two non-zero vectors in a multi-dimensional space, providing a metric for how similar these vectors are.)
+<em>(Cosine similarity algorithms measure the cosine of the angle between two non-zero vectors in a multi-dimensional space, providing a metric for how similar these vectors are.)</em>
 
 #### Other RAG options
 Other, more advanced, RAG options include Hypothetical Document Embeddings(HyDE) (with a fact-checking step). HyDE is essentially a technique where, instead of using the question's vector to search for answers with an embedding similarity, a HyDE implementation will employ contrastive methods and generate a "hypothetical" answer in response to the prompt and use that "made up" answer to search for context instead.
@@ -68,12 +68,12 @@ HyDE techniques can be helpful in cases where the model will receive questions t
 
 HyDE won't always yield good results. For example, if the question is about a topic that the LLM is unfamiliar with - such as some new concept that was not present in the pre-trained knowledge - then it will likely lead to an increase in inaccurate results and hallucinations. The reason is that if it doesn't know anything about the topic, the hypothetical answer it created to retrieve context will have no basis in reality...a hallucination, in other words.
 
-This is probably why OpenAI presented HyDE i in the video with the <em>+ fact-checking step</em>!
+This is probably why OpenAI presented HyDE in the video with the <em>+ fact-checking step</em>!
 
 ### RAG evaluation
 It's important to remember that by adding RAG to a solution, there is now an entirely new bunch of things that can go wrong. As John points out in the video, LLMs already hallucinate all on their own. If the context the model uses to ground its responses is fundamentally or systematically flawed, understanding whether the solution fails because of the RAG integration or an inherently hallucinatory trait within the model will be challenging. For this reason, evaluation frameworks are crucial.
 
-The video mentions an open-source evaluation framework called Ragas from Exploding Gradients. Ragas measures four metrics. Two evaluate how well the model answered the question (Generation), and two measure how relevant the content retrieved is to the question (Retrieval).
+The video mentions an open-source evaluation framework called R<a href="https://github.com/explodinggradients/ragas">Ragas from Exploding Gradients</a>. Ragas measures four metrics. Two evaluate how well the model answered the question (Generation), and two measure how relevant the content retrieved is to the question (Retrieval).
 
 The Generation metrics are:
 - *Faithfulness* - a measure of how factually accurate the answer is.
