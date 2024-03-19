@@ -30,6 +30,10 @@ The transformer model's ability to understand context and nuance in text has ena
 
 # The architecture
 <br>
+Transformer architectures have three broad models:
+- Encoders
+- Decoders, and
+Encoder-Decoders (Sequence-to-Sequence)
 
 ## Encoders
 Encoders in transformers process input text into a format (vector representations) that captures the essence of the original information.
@@ -47,6 +51,8 @@ Bi-directional processing enables transformers to capture a more nuanced and com
 > ***Encoders use self-attention layers to understand relative context.***
 
 Encoders in transformer models aim to evaluate and understand each part of the input text relative to the entire text. This is achieved by first converting each word or part of the input into a vector representation using embeddings. For each of these vector representations, the model generates three distinct vectors: *Query `(Q)`*, *Key `(K)`*, and *Value `(V)`*. The `Q`, `K`, and `V` vectors are then utilised to calculate attention scores, determining the weight each word's representation should assign to every other word's representation in the input. This weighting process enables the model to determine how much 'attention' or importance each part of the input should give to other parts, effectively allowing each word to consider the context provided by the entire input. This mechanism, known as **self-attention**, is pivotal for the model's ability to capture and utilise contextual information within the input.
+
+Encoder-only models are often used in tasks that require an understanding of the input, like sentence classification or named entity recognition.
 
 ## Decoders
 
@@ -73,8 +79,10 @@ Generated each element of the output one at a time, based on the previously gene
 
 In summary, decoders are *uni-directional* because their *self-attention* layer is masked. Masking supports the *auto-regressive* nature of the generation process, ensuring that each step in generating the output can only use information from the steps that have already occurred.
 
+Decoder-only models are particularly useful at generative tasks, like text generation.
+
 ## Encoders-decoders
-Are also known as **sequence-to-sequence**. These models are good for generative tasks that are based on an input, such as translation summarisation.
+Are also known as **sequence-to-sequence**. These models are good for generative tasks that are based on an input, such as translation or summarisation.
 
 # Self-Attention Layers
 **Attention layers** refers to any layer within a neural network that applies some form of the *attention mechanism*. Attention mechanisms allow models to focus on different parts of the input data with varying degrees of emphasis.
