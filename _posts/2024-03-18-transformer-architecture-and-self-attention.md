@@ -33,7 +33,7 @@ The transformer model's ability to understand context and nuance in text has ena
 Transformer architectures have three broad models:
 - Encoders
 - Decoders, and
-Encoder-Decoders (Sequence-to-Sequence)
+- Encoder-Decoders (Sequence-to-Sequence)
 
 ## Encoders
 Encoders in transformers process input text into a format (vector representations) that captures the essence of the original information.
