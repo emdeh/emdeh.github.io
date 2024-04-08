@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Hospital
-date: 2024-01-25 10:14:00-0400
+date: 2024-04-08 10:14:00-0400
 description: Hospital - Hack The Box walkthrough.
 tags: medium-box HTB insecure-file-upload weak-credentials unpatched command-injection remote-code-execution insecure-coding inappropriate-file-permissions local-administrator phar php eps
 categories: HTB-Machines
