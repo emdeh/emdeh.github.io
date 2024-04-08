@@ -22,7 +22,7 @@ An unpatched vulnerability in the Linux kernel was then exploited elevate privil
 
 From there, insecure coding practices had hardcoded a password in a batch script. The presence of a local administrator account and inappropriate file permissions resulted in obtaining `NT Authority` system access.
 
-The machine clearly demonstrates how various vulnerabilities can be chained together to ultimately become greater than the sum of their parts.
+The machine clearly demonstrates how various vulnerabilities can be chained together to ultimately become greater than the sum of their parts. 
 
 ---
 
