@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Pilgrimage
+title: Pilgrimage - Arbitrary File Reads and Local File Inclusions.
 date: 2023-10-15 10:14:00-0400
 description: Pilgrimage - Hack The Box write-up.
 tags: easy-box HTB CTF RCE LFI AFR

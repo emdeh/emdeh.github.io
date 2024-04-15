@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Hospital
+title: Hospital - Insecure File Uploads, Business Email Compromise, and kernel exploits.
 date: 2024-04-08 10:14:00-0400
 description: Hospital - Hack The Box walkthrough.
 tags: medium-box HTB insecure-file-upload weak-credentials unpatched command-injection remote-code-execution insecure-coding inappropriate-file-permissions local-administrator phar php eps

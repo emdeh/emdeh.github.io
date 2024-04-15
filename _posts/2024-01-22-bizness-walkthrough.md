@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Bizness
+title: Bizness - Authentication bypass and SSRF.
 date: 2024-01-23 10:14:00-0400
 description: Bizness - Hack The Box walkthrough.
 tags: easy-box HTB CTF SSRF authentication-bypass persistence linpeas

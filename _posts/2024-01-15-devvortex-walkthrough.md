@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Devvortex
+title: Devvortex - Unauthenticated Information Disclosure and password re-use.
 date: 2024-01-15 10:14:00-0400
 description: Devvortex - Hack The Box walkthrough.
 tags: easy-box HTB CTF credential-stuffing information-disclosure password-cracking
