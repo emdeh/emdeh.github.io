@@ -72,6 +72,7 @@ db_password = os.getenv('DB_PASSWORD')
 - **Secrets Management Tools**: Use dedicated secrets management tools like AWS Secrets Manager or Azure Key Vault.
 - **Secrets Rotation**: Regularly rotate secrets and credentials to reduce the risk of compromised credentials.
 - **Secure Code Reviews**: Conduct regular code reviews with a focus on security to identify and remediate hardcoded credentials and other insecure coding practices.
+
 ### Sudo misconfiguration
 As discussed in [Headless](https://emdeh.com/blog/2024/headleass-walkthrough/#vulnerabilities-explored), the `sudoers` file controls which users can execute commands with elevated privileges. If this file is configured to allow a user to run certain commands as the superuser.
 
@@ -239,7 +240,7 @@ Observing the resulting POST request in Burpsuite suggests this may be the vecto
 ## Server-Side Template Injection for a reverse shell
 
 ### Identifying the Template engine
-
+git a
 The HTTP headers reveal the server is using the `Werkzeug/2.3.7` utility library for Python, which is common for Flask applications. Flask typically defaults to using `Jinja2` for templating.
 
 - **Werkzeug**: Provides the underlying Web Server Gateway Interface (WSGI) functionality and utilities for Flask.
